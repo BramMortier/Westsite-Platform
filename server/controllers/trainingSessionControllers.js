@@ -1,4 +1,4 @@
-const trainingSessionServices = require("../services/trainingSessionServices.js");
+const trainingSessionServices = require("../services/trainingSessionServices");
 
 const getAllTrainingSessions = async (req, res) => {};
 

@@ -1,4 +1,4 @@
-const trickServices = require("../services/trickServices.js");
+const trickServices = require("../services/trickServices");
 
 const getAllTricks = async (req, res) => {};
 

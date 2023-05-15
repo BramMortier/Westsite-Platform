@@ -1,0 +1,38 @@
+.login-page {
+    padding: 2rem;
+
+    h2 {
+        font-size: 2.4rem;
+        margin-bottom: 0.5rem;
+    }
+
+    &__form-row {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+
+        input {
+            padding: 0.5rem;
+            outline: none;
+        }
+    }
+
+    &__form {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        max-width: 400px;
+
+        p > a {
+            font-weight: bold;
+            color: black;
+        }
+    }
+
+    button {
+        padding: 0.3rem 0.8rem;
+        width: fit-content;
+        cursor: pointer;
+    }
+}

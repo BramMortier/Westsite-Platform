@@ -1,4 +1,4 @@
-const newsPostServices = require("../services/newspostServices.js");
+const newsPostServices = require("../services/newspostServices");
 
 const getAllNewsposts = async (req, res) => {};
 
