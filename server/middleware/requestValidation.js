@@ -8,7 +8,7 @@ const validateRequest = (schema) => {
         if (result.isEmpty()) return next();
 
         const errors = result.array();
-        return res.status(400).send({ status: "FAILED", data: errors });
+        return res.status(400).json({ errors: errors });
     };
 };
 

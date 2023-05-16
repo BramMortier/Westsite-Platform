@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import axios from "../../config/axios";
 import "./registerPage.scss";
 
 const RegisterPage = () => {
@@ -22,10 +22,18 @@ const RegisterPage = () => {
         e.preventDefault();
 
         try {
-            const res = await axios.post("http://localhost:3000/api/auth/register", registerFormData);
-            console.log(res.data);
+            const response = await axios.post("/auth/register", registerFormData);
+            console.log(response.data);
         } catch (error) {
-            console.error(error.response.data);
+            if (!error.response) {
+                console.log("No Server Response");
+            } else if (error.response.status === 409) {
+                console.log(error.response.data);
+            } else if (error.response.status === 400) {
+                console.log(error.response.data);
+            } else {
+                console.log(error.response.data);
+            }
         }
     };
 

@@ -7,4 +7,11 @@ module.exports = {
     rules: {
         "react-refresh/only-export-components": "warn",
     },
+    overrides: [
+        {
+            rules: {
+                "react/prop-types": "off",
+            },
+        },
+    ],
 };

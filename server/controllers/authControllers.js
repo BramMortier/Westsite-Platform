@@ -8,7 +8,7 @@ const register = async (req, res) => {
 
     try {
         let user = await User.findOne({ email });
-        if (user) return res.status(400).json({ error: "An account with this email already exists" });
+        if (user) return res.status(409).json({ message: "An account with this email already exists" });
 
         user = new User({
             firstname,
@@ -27,7 +27,7 @@ const register = async (req, res) => {
         res.status(201).json({ message: "Registration succes" });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ error: "Server error" });
+        res.status(500).json({ message: "Registration failed" });
     }
 };
 
@@ -36,17 +36,19 @@ const login = async (req, res) => {
 
     try {
         const user = await User.findOne({ email });
-        if (!user) return res.status(401).json({ error: "Invalid email address" });
+        if (!user) return res.status(400).json({ message: "Invalid email address" });
 
         const validPassword = await bcrypt.compare(password, user.password);
-        if (!validPassword) return res.status(401).json({ error: "Email and passowrd don't match" });
+        if (!validPassword) return res.status(401).json({ message: "Email and passowrd don't match" });
+
+        const accesToken = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRES_IN });
 
         res.status(200).json({
-            token: jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRES_IN }),
+            token: `Bearer ${accesToken}`,
         });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ error: "Server error" });
+        res.status(500).json({ message: "Login Failed" });
     }
 };
 

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./loginPage.scss";
-import axios from "axios";
+import axios from "../../config/axios";
 
 const LoginPage = () => {
     const [loginFormData, setLoginFormData] = useState({
@@ -20,10 +20,19 @@ const LoginPage = () => {
         e.preventDefault();
 
         try {
-            const res = await axios.post("http://localhost:3000/api/auth/login", loginFormData);
-            console.log(res.data);
+            const response = await axios.post("/auth/login", loginFormData);
+            localStorage.setItem("token", response.data.token);
+            console.log(response.data.token);
         } catch (error) {
-            console.log(error);
+            if (!error.response) {
+                console.log("No Server Response");
+            } else if (error.response.status === 400) {
+                console.log(error.response.data);
+            } else if (error.response.status === 401) {
+                console.log(error.response.data);
+            } else {
+                console.log(error.response.data);
+            }
         }
     };
 
