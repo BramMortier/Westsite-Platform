@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "../../config/axios";
+import { useAuthContext } from "../../hooks/useAuthContext";
 import "./registerPage.scss";
 
 const RegisterPage = () => {
+    const { register } = useAuthContext();
+
     const [registerFormData, setRegisterFormData] = useState({
         firstname: "",
         lastname: "",
@@ -11,51 +13,37 @@ const RegisterPage = () => {
         password: "",
     });
 
-    const onChange = async (e) => {
+    const handleChange = async (e) => {
         setRegisterFormData({
             ...registerFormData,
             [e.target.name]: e.target.value,
         });
     };
 
-    const register = async (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-
-        try {
-            const response = await axios.post("/auth/register", registerFormData);
-            console.log(response.data);
-        } catch (error) {
-            if (!error.response) {
-                console.log("No Server Response");
-            } else if (error.response.status === 409) {
-                console.log(error.response.data);
-            } else if (error.response.status === 400) {
-                console.log(error.response.data);
-            } else {
-                console.log(error.response.data);
-            }
-        }
+        register(registerFormData);
     };
 
     return (
         <div className="login-page">
-            <form className="login-page__form" onSubmit={register}>
+            <form className="login-page__form" onSubmit={handleSubmit}>
                 <h2>Register</h2>
                 <div className="login-page__form-row">
-                    <label htmlFor="firstname">firstname</label>
-                    <input type="text" name="firstname" placeholder="firstname" onChange={onChange} />
+                    <label htmlFor="registerFirstname">firstname</label>
+                    <input type="text" id="registerFirstname" name="firstname" placeholder="firstname" onChange={handleChange} />
                 </div>
                 <div className="login-page__form-row">
-                    <label htmlFor="lastname">lastname</label>
-                    <input type="text" name="lastname" placeholder="lastname" onChange={onChange} />
+                    <label htmlFor="registerLastname">lastname</label>
+                    <input type="text" id="registerLastname" name="lastname" placeholder="lastname" onChange={handleChange} />
                 </div>
                 <div className="login-page__form-row">
-                    <label htmlFor="email">email</label>
-                    <input type="text" name="email" placeholder="email" onChange={onChange} />
+                    <label htmlFor="registerEmail">email</label>
+                    <input type="text" id="registerEmail" name="email" placeholder="email" onChange={handleChange} />
                 </div>
                 <div className="login-page__form-row">
-                    <label htmlFor="password">password</label>
-                    <input type="password" name="password" placeholder="password" onChange={onChange} />
+                    <label htmlFor="registerPassword">password</label>
+                    <input type="password" id="registerPassword" name="password" placeholder="password" onChange={handleChange} />
                 </div>
                 <p>
                     I have an account <Link to="/login">Login</Link>

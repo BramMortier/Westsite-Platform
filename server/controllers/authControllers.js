@@ -41,10 +41,10 @@ const login = async (req, res) => {
         const validPassword = await bcrypt.compare(password, user.password);
         if (!validPassword) return res.status(401).json({ message: "Email and passowrd don't match" });
 
-        const accesToken = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRES_IN });
+        const accesToken = jwt.sign({ user: { id: user.id } }, process.env.JWT_SECRET, { expiresIn: `${process.env.JWT_EXPIRES_IN}h` });
 
         res.status(200).json({
-            token: `Bearer ${accesToken}`,
+            token: accesToken,
         });
     } catch (error) {
         console.error(error);

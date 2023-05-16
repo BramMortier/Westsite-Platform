@@ -1,52 +1,42 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuthContext } from "../../hooks/useAuthContext";
 import "./loginPage.scss";
-import axios from "../../config/axios";
 
 const LoginPage = () => {
+    const { login } = useAuthContext();
+    const navigate = useNavigate();
+
     const [loginFormData, setLoginFormData] = useState({
         email: "",
         password: "",
     });
 
-    const onChange = (e) => {
+    const handleChange = (e) => {
         setLoginFormData({
             ...loginFormData,
             [e.target.name]: e.target.value,
         });
+        handleChange;
     };
 
-    const login = async (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-
-        try {
-            const response = await axios.post("/auth/login", loginFormData);
-            localStorage.setItem("token", response.data.token);
-            console.log(response.data.token);
-        } catch (error) {
-            if (!error.response) {
-                console.log("No Server Response");
-            } else if (error.response.status === 400) {
-                console.log(error.response.data);
-            } else if (error.response.status === 401) {
-                console.log(error.response.data);
-            } else {
-                console.log(error.response.data);
-            }
-        }
+        login(loginFormData);
+        navigate("/");
     };
 
     return (
         <div className="login-page">
-            <form className="login-page__form" onSubmit={login}>
+            <form className="login-page__form" onSubmit={handleSubmit}>
                 <h2>Login</h2>
                 <div className="login-page__form-row">
-                    <label htmlFor="email">email</label>
-                    <input type="text" name="email" placeholder="email" onChange={onChange} />
+                    <label htmlFor="loginEmail">email</label>
+                    <input type="text" id="loginEmail" name="email" placeholder="email" onChange={handleChange} />
                 </div>
                 <div className="login-page__form-row">
-                    <label htmlFor="password">password</label>
-                    <input type="password" name="password" placeholder="password" onChange={onChange} />
+                    <label htmlFor="loginPassword">password</label>
+                    <input type="password" id="loginPassword" name="password" placeholder="password" onChange={handleChange} />
                 </div>
                 <p>
                     I dont have an account <Link to="/register">Register</Link>
