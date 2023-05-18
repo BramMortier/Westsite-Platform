@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { registerFormValidationSchema } from "../../config/validation/formSchemas";
+import { validateForm, registerFormValidationSchema } from "../../config/validation/formSchemas";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import "./registerPage.scss";
 
@@ -20,41 +20,24 @@ const RegisterPage = () => {
     const handleRegisterFormChange = async (e) => {
         const { name, value } = e.target;
 
-        const updatedRegisterFormData = {
+        setRegisterFormData({
             ...registerFormData,
             [name]: value,
-        };
-
-        setRegisterFormData(updatedRegisterFormData);
-
-        const validationResult = registerFormValidationSchema.validate(updatedRegisterFormData, { abortEarly: false });
-
-        const filteredErrs = validationResult.error.details
-            .map((entry) => {
-                if (entry.context.key === name) {
-                    return entry.message;
-                }
-                return null;
-            })
-            .filter((error) => error !== null);
-
-        setRegisterFormErrors({
-            ...registerFormErrors,
-            [name]: filteredErrs,
         });
     };
 
-    console.log(registerFormErrors);
-
     const handleRegisterFormSubmit = async (e) => {
         e.preventDefault();
-        await register(registerFormData);
+
+        console.log(validateForm(registerFormValidationSchema, registerFormData));
+
+        // await register(registerFormData);
         setRegisterFormData(registerFormInitalState);
     };
 
     return (
         <div className="register-page">
-            <form className="register-page__form" onSubmit={handleRegisterFormSubmit}>
+            <form className="register-page__form" noValidate onSubmit={handleRegisterFormSubmit}>
                 <h2>Register</h2>
                 <div className="register-page__form-row">
                     <label htmlFor="registerFirstname">firstname</label>
