@@ -12,31 +12,46 @@ const LoginPage = () => {
         password: "",
     });
 
-    const handleChange = (e) => {
+    const handleLoginFormChange = (e) => {
+        const { name, value } = e.target;
+
         setLoginFormData({
             ...loginFormData,
-            [e.target.name]: e.target.value,
+            [name]: value,
         });
-        handleChange;
     };
 
-    const handleSubmit = async (e) => {
+    const handleLoginFormSubmit = async (e) => {
         e.preventDefault();
-        login(loginFormData);
+        await login(loginFormData);
         navigate("/");
     };
 
     return (
         <div className="login-page">
-            <form className="login-page__form" onSubmit={handleSubmit}>
+            <form className="login-page__form" onSubmit={handleLoginFormSubmit}>
                 <h2>Login</h2>
                 <div className="login-page__form-row">
                     <label htmlFor="loginEmail">email</label>
-                    <input type="text" id="loginEmail" name="email" placeholder="email" onChange={handleChange} />
+                    <input
+                        type="text"
+                        id="loginEmail"
+                        name="email"
+                        placeholder="email"
+                        value={loginFormData.email}
+                        onChange={handleLoginFormChange}
+                    />
                 </div>
                 <div className="login-page__form-row">
                     <label htmlFor="loginPassword">password</label>
-                    <input type="password" id="loginPassword" name="password" placeholder="password" onChange={handleChange} />
+                    <input
+                        type="password"
+                        id="loginPassword"
+                        name="password"
+                        placeholder="password"
+                        value={loginFormData.password}
+                        onChange={handleLoginFormChange}
+                    />
                 </div>
                 <p>
                     I dont have an account <Link to="/register">Register</Link>
