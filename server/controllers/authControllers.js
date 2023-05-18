@@ -8,7 +8,7 @@ const register = async (req, res) => {
 
     try {
         let user = await User.findOne({ email });
-        if (user) return res.status(409).json({ message: "An account with this email already exists" });
+        if (user) return res.status(409).json({ status: "ERROR", message: "An account with this email already exists" });
 
         user = new User({
             firstname,
@@ -24,10 +24,10 @@ const register = async (req, res) => {
 
         await user.save();
 
-        res.status(201).json({ message: "Registration succes" });
+        res.status(201).json({ status: "OK", message: "Registration succes" });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ message: "Registration failed" });
+        res.status(500).json({ status: "ERROR", message: "Registration failed" });
     }
 };
 
@@ -36,19 +36,21 @@ const login = async (req, res) => {
 
     try {
         const user = await User.findOne({ email });
-        if (!user) return res.status(400).json({ message: "Invalid email address" });
+        if (!user) return res.status(400).json({ status: "ERROR", message: "Invalid email address" });
 
         const validPassword = await bcrypt.compare(password, user.password);
-        if (!validPassword) return res.status(401).json({ message: "Email and passowrd don't match" });
+        if (!validPassword) return res.status(401).json({ status: "ERROR", message: "Email and passowrd don't match" });
 
         const accesToken = jwt.sign({ user: { id: user.id } }, process.env.JWT_SECRET, { expiresIn: `${process.env.JWT_EXPIRES_IN}h` });
 
         res.status(200).json({
+            status: "OK",
+            message: "Login succes",
             token: accesToken,
         });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ message: "Login Failed" });
+        res.status(500).json({ status: "ERROR", message: "Login Failed" });
     }
 };
 
