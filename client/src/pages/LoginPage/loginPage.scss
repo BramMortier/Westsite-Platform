@@ -30,6 +30,11 @@
         }
     }
 
+    &__form-error {
+        color: rgb(169, 74, 63);
+        font-size: 0.85rem;
+    }
+
     button {
         padding: 0.3rem 0.8rem;
         width: fit-content;

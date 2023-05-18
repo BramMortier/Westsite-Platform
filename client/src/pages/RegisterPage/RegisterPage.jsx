@@ -1,11 +1,14 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { validateForm, registerFormValidationSchema } from "../../config/validation/formSchemas";
+import { Link, useNavigate } from "react-router-dom";
+import routes from "../../config/routes";
+import { registerFormValidationSchema } from "../../config/validation/formSchemas";
+import validateForm from "../../config/validation/validateForm";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import "./registerPage.scss";
 
 const RegisterPage = () => {
     const { register } = useAuthContext();
+    const navigate = useNavigate();
 
     const registerFormInitalState = {
         firstname: "",
@@ -16,6 +19,8 @@ const RegisterPage = () => {
 
     const [registerFormData, setRegisterFormData] = useState(registerFormInitalState);
     const [registerFormErrors, setRegisterFormErrors] = useState({});
+    const [registerFormMessage, setRegisterFormMessage] = useState(null);
+    // TODO isSubmiting state toevoegen
 
     const handleRegisterFormChange = async (e) => {
         const { name, value } = e.target;
@@ -29,16 +34,33 @@ const RegisterPage = () => {
     const handleRegisterFormSubmit = async (e) => {
         e.preventDefault();
 
-        console.log(validateForm(registerFormValidationSchema, registerFormData));
+        const result = await validateForm(registerFormValidationSchema, registerFormData);
 
-        // await register(registerFormData);
-        setRegisterFormData(registerFormInitalState);
+        if (result === true) {
+            const response = await register(registerFormData);
+            setRegisterFormMessage({ type: response.status, content: response.message });
+            if (response.status === "OK") setTimeout(() => navigate("/login"), 750);
+        } else {
+            setRegisterFormErrors(result);
+            setRegisterFormMessage(null);
+        }
     };
 
     return (
         <div className="register-page">
             <form className="register-page__form" noValidate onSubmit={handleRegisterFormSubmit}>
                 <h2>Register</h2>
+                {registerFormMessage && (
+                    <div
+                        className={`register-page__form-general-message ${
+                            registerFormMessage.type === "OK"
+                                ? "register-page__form-general-message--ok"
+                                : "register-page__form-general-message--error"
+                        }`}
+                    >
+                        {registerFormMessage.content}
+                    </div>
+                )}
                 <div className="register-page__form-row">
                     <label htmlFor="registerFirstname">firstname</label>
                     <input
@@ -88,7 +110,7 @@ const RegisterPage = () => {
                     {registerFormErrors.password && <p className="register-page__form-error">{registerFormErrors.password}</p>}
                 </div>
                 <p>
-                    I have an account <Link to="/login">Login</Link>
+                    I have an account <Link to={routes.login}>Login</Link>
                 </p>
                 <button type="submit">Register</button>
             </form>

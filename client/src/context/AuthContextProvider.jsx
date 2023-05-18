@@ -67,16 +67,16 @@ export const AuthProvider = ({ children }) => {
     const register = async (registerData) => {
         try {
             const response = await axios.post("/auth/register", registerData);
-            console.log(response.data);
+            return response.data;
         } catch (error) {
             if (!error.response) {
-                console.log("No Server Response");
+                return { message: "No Server Response" };
             } else if (error.response.status === 409) {
-                console.log(error.response.data);
+                return error.response.data;
             } else if (error.response.status === 400) {
-                console.log(error.response.data);
+                return error.response.data;
             } else {
-                console.log(error.response.data);
+                return error.response.data;
             }
         }
     };

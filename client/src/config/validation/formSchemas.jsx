@@ -1,27 +1,13 @@
-import Joi from "joi-browser";
+import * as yup from "yup";
 
-export const validateForm = (validationSchema, formData) => {
-    const validationResult = validationSchema.validate(formData, { abortEarly: false });
+export const registerFormValidationSchema = yup.object().shape({
+    firstname: yup.string().required("firstname is required"),
+    lastname: yup.string().required("lastname is required"),
+    email: yup.string().email().required("email is required"),
+    password: yup.string().min(6).required("password is required"),
+});
 
-    const validationErrors = {};
-
-    validationResult.error.details.forEach((error) => {
-        const key = error.context.key;
-        const message = error.message;
-
-        if (validationErrors[key]) {
-            validationErrors[key].push(message);
-        } else {
-            validationErrors[key] = [message];
-        }
-    });
-
-    return validationErrors;
-};
-
-export const registerFormValidationSchema = Joi.object({
-    firstname: Joi.string().required(),
-    lastname: Joi.string().required(),
-    email: Joi.string().email().required(),
-    password: Joi.string().min(6).required(),
+export const loginFormValidationSchema = yup.object().shape({
+    email: yup.string().required("email is required"),
+    password: yup.string().required("password is required"),
 });
