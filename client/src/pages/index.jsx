@@ -1,5 +1,3 @@
-import LoginPage from "./LoginPage/LoginPage";
-import RegisterPage from "./RegisterPage/RegisterPage";
-import HomePage from "./Homepage/Homepage";
-
-export { LoginPage, RegisterPage, HomePage };
+export { default as LoginPage } from "./LoginPage/LoginPage";
+export { default as RegisterPage } from "./RegisterPage/RegisterPage";
+export { default as HomePage } from "./Homepage/Homepage";

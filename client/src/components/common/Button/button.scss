@@ -1,0 +1,29 @@
+.button {
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: var(--space-xs) var(--space-lg);
+    transition: all ease;
+    font-weight: var(--fw-semi-bold);
+    min-height: 45px;
+    line-height: var(--line-height-xs);
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &--primary {
+        background-color: var(--lime-green-500);
+        color: var(--lime-green-900);
+    }
+
+    &--secondary {
+        background-color: var(--black);
+        color: var(--lime-green-500);
+    }
+
+    &--tertiary {
+        background-color: var(--off-white);
+        color: var(--black);
+    }
+}
