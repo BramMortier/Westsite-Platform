@@ -17,6 +17,7 @@ const LoginPage = () => {
 
     const [loginFormData, setLoginFormData] = useState(loginFormInitialState);
     const [loginFormErrors, setLoginFormErrors] = useState({});
+    const [loginFormMessage, setLoginFormMessage] = useState(null);
 
     const handleLoginFormChange = (e) => {
         const { name, value } = e.target;
@@ -30,18 +31,18 @@ const LoginPage = () => {
     const handleLoginFormSubmit = async (e) => {
         e.preventDefault();
 
-        try {
-            const result = await validateForm(loginFormValidationSchema, loginFormData);
+        setLoginFormErrors({});
+        setLoginFormMessage(null);
 
-            if (result === true) {
-                await login(loginFormData);
-                setLoginFormData(loginFormInitialState);
-                navigate("/");
-            } else {
-                setLoginFormErrors(result);
-            }
-        } catch (error) {
-            console.log("something went wrong validating your form");
+        const result = await validateForm(loginFormValidationSchema, loginFormData);
+
+        if (result === true) {
+            const response = await login(loginFormData);
+            setLoginFormMessage({ type: response.status, content: response.message });
+            setLoginFormData(loginFormInitialState);
+            if (response.status === "OK") setTimeout(() => navigate("/"), 750);
+        } else {
+            setLoginFormErrors(result);
         }
     };
 
@@ -49,6 +50,15 @@ const LoginPage = () => {
         <div className="login-page">
             <form className="login-page__form" noValidate onSubmit={handleLoginFormSubmit}>
                 <h2>Login</h2>
+                {loginFormMessage && (
+                    <div
+                        className={`login-page__form-general-message ${
+                            loginFormMessage.type === "OK" ? "login-page__form-general-message--ok" : "login-page__form-general-message--error"
+                        }`}
+                    >
+                        {loginFormMessage.content}
+                    </div>
+                )}
                 <div className="login-page__form-row">
                     <label htmlFor="loginEmail">email</label>
                     <input

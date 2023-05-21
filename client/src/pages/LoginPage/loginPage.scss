@@ -6,6 +6,22 @@
         margin-bottom: 0.5rem;
     }
 
+    &__form-general-message {
+        padding: 1rem;
+        font-size: 0.85rem;
+        border-radius: 5px;
+
+        &--ok {
+            background-color: rgb(207, 255, 230);
+            color: rgb(72, 134, 72);
+        }
+
+        &--error {
+            background-color: rgb(255, 203, 198);
+            color: rgb(169, 74, 63);
+        }
+    }
+
     &__form-row {
         display: flex;
         flex-direction: column;

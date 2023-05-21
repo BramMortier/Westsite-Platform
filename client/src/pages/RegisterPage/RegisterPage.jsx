@@ -20,7 +20,11 @@ const RegisterPage = () => {
     const [registerFormData, setRegisterFormData] = useState(registerFormInitalState);
     const [registerFormErrors, setRegisterFormErrors] = useState({});
     const [registerFormMessage, setRegisterFormMessage] = useState(null);
+
     // TODO isSubmiting state toevoegen
+    // TODO eerste input focus();
+    // TODO live validatie (submit konp disable)
+    // TODO disable submit knop na submit
 
     const handleRegisterFormChange = async (e) => {
         const { name, value } = e.target;
@@ -34,15 +38,18 @@ const RegisterPage = () => {
     const handleRegisterFormSubmit = async (e) => {
         e.preventDefault();
 
+        setRegisterFormErrors({});
+        setRegisterFormMessage(null);
+
         const result = await validateForm(registerFormValidationSchema, registerFormData);
 
         if (result === true) {
             const response = await register(registerFormData);
             setRegisterFormMessage({ type: response.status, content: response.message });
+            setRegisterFormData(registerFormInitalState);
             if (response.status === "OK") setTimeout(() => navigate("/login"), 750);
         } else {
             setRegisterFormErrors(result);
-            setRegisterFormMessage(null);
         }
     };
 

@@ -37,8 +37,6 @@ export const AuthProvider = ({ children }) => {
                     headers: { Authorization: `Bearer ${token}` },
                 });
 
-                console.log(response.data);
-
                 axios.defaults.headers.common["Authorization"] = token;
 
                 dispatch({
@@ -70,7 +68,7 @@ export const AuthProvider = ({ children }) => {
             return response.data;
         } catch (error) {
             if (!error.response) {
-                return { message: "No Server Response" };
+                return { status: "ERRROR", message: "No Server Response" };
             } else if (error.response.status === 409) {
                 return error.response.data;
             } else if (error.response.status === 400) {
@@ -85,17 +83,17 @@ export const AuthProvider = ({ children }) => {
         try {
             const response = await axios.post("/auth/login", loginData);
             localStorage.setItem("token", response.data.token);
-            console.log(response.data);
             await fetchUserInfo();
+            return response.data;
         } catch (error) {
             if (!error.response) {
-                console.log("No Server Response");
+                return { type: "ERROR", message: "No Server Response" };
             } else if (error.response.status === 400) {
-                console.log(error.response.data);
+                return error.response.data;
             } else if (error.response.status === 401) {
-                console.log(error.response.data);
+                return error.response.data;
             } else {
-                console.log(error.response.data);
+                return error.response.data;
             }
         }
     };
