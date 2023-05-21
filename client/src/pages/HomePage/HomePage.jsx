@@ -1,17 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { useAuthContext } from "../../hooks/useAuthContext";
-import routes from "../../config/routes";
+import { Expectations, Hero } from "../../components";
 import "./homePage.scss";
-import { Header, Footer } from "../../components";
 
 const homePage = () => {
-    const { state, logout } = useAuthContext();
-
     return (
         <React.Fragment>
-            <Header />
-            <Footer />
+            <Hero />
+            <Expectations />
         </React.Fragment>
     );
 };

@@ -9,7 +9,7 @@ const Footer = () => {
 
     return (
         <footer className="footer">
-            <div className="footer__wrapper">
+            <div className="footer__content">
                 <div className="footer__main">
                     <section className="footer__section">
                         <Link to={routes.home}>

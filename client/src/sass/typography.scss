@@ -10,6 +10,7 @@
     --fs-3xl: 3.75rem;
 
     --line-height-xs: 1;
+    --line-height-sm: 1.2;
     --line-height-md: 1.75;
 
     --fw-regular: 400;
@@ -22,7 +23,6 @@ body {
     font-size: var(--fs-sm);
     color: var(--gray-500);
     font-weight: var(--fw-regular);
-    line-height: var(--line-height-md);
     text-decoration: none;
     font-style: normal;
 }

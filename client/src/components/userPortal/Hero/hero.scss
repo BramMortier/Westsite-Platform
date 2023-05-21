@@ -1,0 +1,39 @@
+.hero {
+    position: relative;
+    background-image: url("/images/hero-banner.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: flex-end;
+    min-height: 600px;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--bg-overlay);
+        mix-blend-mode: multiply;
+    }
+
+    &__content {
+        width: 100%;
+        max-width: 1600px;
+        margin: 0 auto;
+        padding: var(--space-xl) var(--space-2xl);
+        z-index: 1;
+
+        h2 {
+            font-size: var(--fs-3xl);
+            line-height: var(--line-height-sm);
+            color: var(--off-white);
+
+            span.highlighted {
+                color: var(--lime-green-500);
+            }
+        }
+    }
+}
