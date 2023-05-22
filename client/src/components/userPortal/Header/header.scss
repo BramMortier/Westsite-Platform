@@ -64,6 +64,10 @@
 
     &__user-menu {
         position: relative;
+
+        button {
+            box-shadow: 0 4px 8px var(--drop-shadow);
+        }
     }
 
     &__user-menu-dropdown {
@@ -79,6 +83,7 @@
         transform: translateX(2rem);
         pointer-events: none;
         transition: all ease 0.3s;
+        box-shadow: 0 4px 8px var(--drop-shadow);
 
         &--active {
             opacity: 1;

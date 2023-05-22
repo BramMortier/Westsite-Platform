@@ -1,7 +1,7 @@
 const routes = {
     home: "/",
     trainingSessions: "/trainingSessions",
-    trick: "/trick/:id",
+    trickInfo: "/trick/:id",
     profile: "/profile",
     login: "/login",
     register: "/register",

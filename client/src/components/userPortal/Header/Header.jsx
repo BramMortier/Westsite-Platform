@@ -1,8 +1,8 @@
 import { useState } from "react";
-import routes from "../../../config/routes";
+import routes from "@config/routes";
 import { Link } from "react-router-dom";
-import { Button } from "../../../components";
-import { useAuthContext } from "../../../hooks/useAuthContext";
+import { Button } from "@components";
+import { useAuthContext } from "@hooks/useAuthContext";
 import "./header.scss";
 
 const Header = () => {
