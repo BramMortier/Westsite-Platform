@@ -1,5 +1,5 @@
 import { createContext, useEffect, useReducer } from "react";
-import axios from "../config/axios";
+import axios from "@config/axios";
 
 const initialState = {
     isAuthenticated: false,

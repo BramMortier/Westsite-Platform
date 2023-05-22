@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import routes from "../../../config/routes";
-import validateForm from "../../../config/validation/validateForm";
-import { loginFormValidationSchema } from "../../../config/validation/formSchemas";
-import { useAuthContext } from "../../../hooks/useAuthContext";
+import routes from "@config/routes";
+import validateForm from "@config/validation/validateForm";
+import { loginFormValidationSchema } from "@config/validation/formSchemas";
+import { useAuthContext } from "@hooks/useAuthContext";
 import "./loginPage.scss";
 
 const LoginPage = () => {

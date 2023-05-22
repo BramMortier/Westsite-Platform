@@ -1,5 +1,5 @@
 import React from "react";
-import { Expectations, Hero } from "../../../components";
+import { Expectations, Hero } from "@components";
 import "./homePage.scss";
 
 const homePage = () => {
