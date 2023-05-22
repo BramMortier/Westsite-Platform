@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import routes from "../../config/routes";
-import { registerFormValidationSchema } from "../../config/validation/formSchemas";
-import validateForm from "../../config/validation/validateForm";
-import { useAuthContext } from "../../hooks/useAuthContext";
+import routes from "../../../config/routes";
+import { registerFormValidationSchema } from "../../../config/validation/formSchemas";
+import validateForm from "../../../config/validation/validateForm";
+import { useAuthContext } from "../../../hooks/useAuthContext";
 import "./registerPage.scss";
 
 const RegisterPage = () => {
