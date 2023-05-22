@@ -1,17 +1,16 @@
 import { Outlet } from "react-router-dom";
 import { Header, Footer } from "@components";
-import React from "react";
 import "./defaultLayout.scss";
 
 const DefaultLayout = () => {
     return (
-        <React.Fragment>
+        <div className="default-layout">
             <Header />
             <main>
                 <Outlet />
             </main>
             <Footer />
-        </React.Fragment>
+        </div>
     );
 };
 

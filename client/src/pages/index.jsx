@@ -9,3 +9,5 @@ export { default as ManageNieuwsPage } from "./adminDashboard/ManageNieuwsPage/M
 export { default as ManageTrainingSessionsPage } from "./adminDashboard/ManageTrainingSessionsPage/ManageTrainingSessionsPage";
 export { default as ManageTricksPage } from "./adminDashboard/ManageTricksPage/ManageTricksPage";
 export { default as ManageMembersPage } from "./adminDashboard/ManageMembersPage/ManageMembersPage";
+
+export { default as NotFoundPage } from "./special/NotFoundPage/NotFoundPage";

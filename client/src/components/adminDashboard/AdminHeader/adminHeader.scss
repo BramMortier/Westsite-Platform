@@ -1,0 +1,63 @@
+.admin-header {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--black);
+
+    &__logo {
+        height: 50px;
+        width: fit-content;
+    }
+
+    &__top {
+        padding: var(--space-2xs) var(--space-lg);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__profile {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+
+        p {
+            color: var(--off-white);
+        }
+    }
+
+    &__profile-icon {
+        height: 45px;
+        width: 45px;
+        background-color: var(--gray-800);
+        border-radius: 100%;
+    }
+
+    &__bottom {
+        background-color: var(--lime-green-500);
+    }
+
+    &__section {
+        display: flex;
+        gap: var(--space-lg);
+    }
+
+    &__nav-links {
+        display: flex;
+        align-items: center;
+    }
+
+    &__nav-link {
+        padding: var(--space-2xs) var(--space-lg);
+        transition: all ease 0.3s;
+        font-weight: var(--fw-semi-bold);
+
+        a {
+            color: var(--off-white);
+        }
+
+        &:hover {
+            background-color: var(--lime-green-600);
+            cursor: pointer;
+        }
+    }
+}

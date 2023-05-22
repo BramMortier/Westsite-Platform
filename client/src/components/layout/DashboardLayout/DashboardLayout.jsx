@@ -1,11 +1,15 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
+import { AdminHeader } from "@components";
 
 const DashboardLayout = () => {
     return (
-        <main>
-            <Outlet />
-        </main>
+        <React.Fragment>
+            <AdminHeader />
+            <main>
+                <Outlet />
+            </main>
+        </React.Fragment>
     );
 };
 

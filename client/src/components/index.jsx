@@ -6,5 +6,7 @@ export { default as SectionLabel } from "./userPortal/SectionLabel/SectionLabel"
 export { default as Header } from "./userPortal/Header/Header";
 export { default as Footer } from "./userPortal/Footer/Footer";
 
+export { default as AdminHeader } from "./adminDashboard/AdminHeader/AdminHeader";
+
 export { default as DefaultLayout } from "./layout/DefaultLayout/DefaultLayout";
 export { default as DashboardLayout } from "./layout/DashboardLayout/DashboardLayout";
