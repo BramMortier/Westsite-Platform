@@ -8,6 +8,14 @@
     border-radius: 5px;
     width: 100%;
     max-width: 500px;
+    transition: all ease 0.2s;
+    height: 50px;
+
+    // TODO make the height of this element 50px
+
+    &:hover {
+        background-color: var(--gray-200);
+    }
 
     &__icon {
         width: 18px;
@@ -15,14 +23,16 @@
 
     &__main {
         display: flex;
-        flex-direction: column;
+        align-items: center;
         width: 100%;
+        height: 100%;
 
         input {
             border: none;
             outline: none;
+            width: 100%;
+            height: 100%;
             background-color: transparent;
-            padding-block: var(--space-sm);
             color: var(--black);
 
             &::placeholder {

@@ -1,12 +1,18 @@
 import { useState, useEffect } from "react";
 import axios from "@config/axios";
-import { MemberFilters } from "@components";
+import { MemberFilters, Pagination } from "@components";
 import "./memberTable.scss";
 
 const MemberTable = () => {
     const [users, setUsers] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [itemsPerPage, setItemsPerPage] = useState(5);
 
-    const memberTableColumns = ["Naam", "Geboortejaar", "Home Cable", "Woonplaats", "Contact Info", "Lid/Trainer"];
+    const userTableColumns = ["Naam", "Geboortejaar", "Home Cable", "Woonplaats", "Contact Info", "Lid/Trainer"];
+
+    const indexOfLastUser = currentPage * itemsPerPage;
+    const indexOfFirstUser = indexOfLastUser - itemsPerPage;
+    const slicedUsers = users.slice(indexOfFirstUser, indexOfLastUser);
 
     useEffect(() => {
         const fetchUsers = async () => {
@@ -18,14 +24,14 @@ const MemberTable = () => {
 
     return (
         <section className="member-table">
-            <MemberFilters />
+            <MemberFilters itemsPerPage={itemsPerPage} setItemsPerPage={setItemsPerPage} />
             <table className="member-table__container">
                 <thead className="member-table__head">
-                    <tr>{memberTableColumns && memberTableColumns.map((column, index) => <th key={index}>{column}</th>)}</tr>
+                    <tr>{userTableColumns && userTableColumns.map((column, index) => <th key={index}>{column}</th>)}</tr>
                 </thead>
                 <tbody className="member-table__body">
                     {users &&
-                        users.map((user) => (
+                        slicedUsers.map((user) => (
                             <tr key={user._id}>
                                 <td className="member-table__user-name">
                                     <div className="member-table__value">{`${user.firstname} ${user.lastname}`}</div>
@@ -61,6 +67,15 @@ const MemberTable = () => {
                         ))}
                 </tbody>
             </table>
+            <div className="member-table__pagination">
+                <Pagination
+                    items={users}
+                    itemsPerPage={itemsPerPage}
+                    maxVisiblePageNumbers={5}
+                    currentPage={currentPage}
+                    setCurrentPage={setCurrentPage}
+                />
+            </div>
         </section>
     );
 };

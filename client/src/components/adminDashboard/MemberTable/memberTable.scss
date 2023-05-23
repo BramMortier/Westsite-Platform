@@ -2,11 +2,14 @@
     max-width: 1600px;
     width: 100%;
     padding-inline: var(--space-2xl);
+    margin-bottom: var(--space-3xl);
 
     &__container {
         border-collapse: collapse;
         width: 100%;
-        overflow-y: hidden;
+        max-width: 1600px;
+        overflow-x: scroll;
+        white-space: nowrap;
     }
 
     &__head {
@@ -40,12 +43,6 @@
         display: flex;
     }
 
-    &__user-name {
-    }
-
-    &__user-birth-year {
-    }
-
     &__user-home-cable div {
         display: flex;
         align-items: center;
@@ -55,9 +52,6 @@
             width: 12px;
             height: fit-content;
         }
-    }
-
-    &__user-address {
     }
 
     &__user-contact-info > div {
@@ -88,6 +82,11 @@
         }
     }
 
-    &__user-is-trainer {
+    &__pagination {
+        padding: var(--space-sm);
+        border: 1px solid var(--gray-300);
+        border-top-width: 0px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
     }
 }

@@ -1,5 +1,7 @@
 export { default as Button } from "./common/Button/Button";
 export { default as Input } from "./common/Input/Input";
+export { default as Pagination } from "./common/Pagination/Pagination";
+export { default as DropdownMenu } from "./common/DropdownMenu/DropdownMenu";
 
 export { default as Hero } from "./userPortal/Hero/Hero";
 export { default as Expectations } from "./userPortal/Expectations/Expectations";

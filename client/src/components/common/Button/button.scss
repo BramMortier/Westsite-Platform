@@ -32,6 +32,10 @@
     &--secondary {
         background-color: var(--black);
         color: var(--lime-green-500);
+
+        &:hover {
+            background-color: var(--gray-900);
+        }
     }
 
     &--tertiary {
