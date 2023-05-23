@@ -51,6 +51,10 @@
         transition: all ease 0.3s;
         font-weight: var(--fw-semi-bold);
 
+        &--active {
+            background-color: var(--lime-green-600);
+        }
+
         a {
             color: var(--off-white);
         }

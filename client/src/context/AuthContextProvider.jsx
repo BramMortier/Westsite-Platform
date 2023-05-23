@@ -47,6 +47,7 @@ export const AuthProvider = ({ children }) => {
                 });
             } catch (error) {
                 console.log(error);
+                // TODO handle expired JWT token response
             }
         } else {
             delete axios.defaults.headers.common["Authorization"];

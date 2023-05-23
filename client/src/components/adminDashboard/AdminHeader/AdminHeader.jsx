@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "@hooks/useAuthContext";
@@ -8,6 +9,8 @@ import "./adminHeader.scss";
 const AdminHeader = () => {
     const { state } = useAuthContext();
     const navigate = useNavigate();
+
+    const [activeTab, setActiveTab] = useState("Leden");
 
     return (
         <header className="admin-header">
@@ -31,16 +34,28 @@ const AdminHeader = () => {
             <div className="admin-header__bottom">
                 <nav className="admin-header__nav">
                     <ul className="admin-header__nav-links">
-                        <li className="admin-header__nav-link">
+                        <li
+                            className={`admin-header__nav-link ${activeTab === "Leden" ? "admin-header__nav-link--active" : ""}`}
+                            onClick={() => setActiveTab("Leden")}
+                        >
                             <Link to={routes.admin.members}>Leden</Link>
                         </li>
-                        <li className="admin-header__nav-link">
+                        <li
+                            className={`admin-header__nav-link ${activeTab === "Trainingen" ? "admin-header__nav-link--active" : ""}`}
+                            onClick={() => setActiveTab("Trainingen")}
+                        >
                             <Link to={routes.admin.trainingSessions}>Trainingen</Link>
                         </li>
-                        <li className="admin-header__nav-link">
+                        <li
+                            className={`admin-header__nav-link ${activeTab === "Tricks" ? "admin-header__nav-link--active" : ""}`}
+                            onClick={() => setActiveTab("Tricks")}
+                        >
                             <Link to={routes.admin.tricks}>Tricks</Link>
                         </li>
-                        <li className="admin-header__nav-link">
+                        <li
+                            className={`admin-header__nav-link ${activeTab === "Nieuwsberichten" ? "admin-header__nav-link--active" : ""}`}
+                            onClick={() => setActiveTab("Nieuwsberichten")}
+                        >
                             <Link to={routes.admin.nieuws}>Nieuwsberichten</Link>
                         </li>
                     </ul>

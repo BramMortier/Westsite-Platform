@@ -1,7 +1,10 @@
 const userServices = require("../services/userServices");
 const User = require("../models/userModel");
 
-const getAllUsers = async (req, res) => {};
+const getAllUsers = async (req, res) => {
+    const users = await userServices.getAllUsers();
+    res.status(200).json({ status: "OK", users: users });
+};
 
 const getAuthenticatedUser = async (req, res) => {
     const { id } = req.user;

@@ -1,15 +1,15 @@
-import React from "react";
 import { Outlet } from "react-router-dom";
 import { AdminHeader } from "@components";
+import "./dashboardLayout.scss";
 
 const DashboardLayout = () => {
     return (
-        <React.Fragment>
+        <div className="dashboard-layout">
             <AdminHeader />
-            <main>
+            <div className="dashboard-layout__page-content">
                 <Outlet />
-            </main>
-        </React.Fragment>
+            </div>
+        </div>
     );
 };
 

@@ -1,0 +1,33 @@
+.input {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    background-color: var(--gray-100);
+    border: 1px solid var(--gray-300);
+    padding-inline: var(--space-sm);
+    border-radius: 5px;
+    width: 100%;
+    max-width: 500px;
+
+    &__icon {
+        width: 18px;
+    }
+
+    &__main {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        input {
+            border: none;
+            outline: none;
+            background-color: transparent;
+            padding-block: var(--space-sm);
+            color: var(--black);
+
+            &::placeholder {
+                color: var(--gray-500);
+            }
+        }
+    }
+}

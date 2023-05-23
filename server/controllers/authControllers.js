@@ -18,7 +18,7 @@ const register = async (req, res) => {
             phoneNumber: "0484796229",
             birthYear: 2003,
             homeCable: "Outsider Cablepark",
-            address: "Gentstraat 92 9700 Oudenaarde",
+            address: "Oudenaarde, België",
             trainer: true,
         });
 

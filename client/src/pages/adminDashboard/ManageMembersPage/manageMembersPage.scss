@@ -1,0 +1,11 @@
+.manage-members-page {
+    &__main {
+        grid-area: main;
+    }
+
+    &__sidebar {
+        // grid-area: aside;
+        // min-width: 400px;
+        // background-color: var(--gray-200);
+    }
+}

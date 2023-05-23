@@ -5,7 +5,7 @@ const Expectations = () => {
     return (
         <section className="expectations">
             <div className="expectations__label">
-                <SectionLabel name="Wat Kan Je Verwachten" />
+                <SectionLabel name="Wat kan je verwachten" />
             </div>
             <div className="expectations__content">
                 <div className="expectations__intro">
