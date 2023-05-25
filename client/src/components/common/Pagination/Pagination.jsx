@@ -61,5 +61,6 @@ const Pagination = ({ items, itemsPerPage, maxVisiblePageNumbers, currentPage, s
 };
 
 // TODO Add a jump to page input
+// TODO Show first and last page in the page number list aswell
 
 export default Pagination;

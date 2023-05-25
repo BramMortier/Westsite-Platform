@@ -39,49 +39,6 @@
         }
     }
 
-    &__value {
-        display: flex;
-    }
-
-    &__user-home-cable div {
-        display: flex;
-        align-items: center;
-        gap: var(--space-sm);
-
-        img {
-            width: 12px;
-            height: fit-content;
-        }
-    }
-
-    &__user-contact-info > div {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-3xs);
-    }
-
-    &__user-email {
-        display: flex;
-        align-items: center;
-        gap: var(--space-sm);
-
-        img {
-            height: 12px;
-            width: fit-content;
-        }
-    }
-
-    &__user-phone-number {
-        display: flex;
-        align-items: center;
-        gap: var(--space-sm);
-
-        img {
-            height: 12px;
-            width: fit-content;
-        }
-    }
-
     &__pagination {
         padding: var(--space-sm);
         border: 1px solid var(--gray-300);
