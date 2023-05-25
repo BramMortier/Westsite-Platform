@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import axios from "@config/axios";
+import { useUserContext } from "../../../hooks/useUserContext";
 import { MemberFilters, MemberTableRow, Pagination } from "@components";
 import "./memberTable.scss";
 
 const MemberTable = () => {
-    const [users, setUsers] = useState([]);
+    const { users } = useUserContext();
     const [filteredUsers, setFilteredUsers] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage, setItemsPerPage] = useState(5);
@@ -28,14 +28,6 @@ const MemberTable = () => {
             setFilteredUsers(result);
         }
     }, [searchTerm, users]);
-
-    useEffect(() => {
-        const fetchUsers = async () => {
-            const response = await axios.get("/users");
-            setUsers(response.data.users);
-        };
-        fetchUsers();
-    }, []);
 
     const indexOfLastUser = currentPage * itemsPerPage;
     const indexOfFirstUser = indexOfLastUser - itemsPerPage;

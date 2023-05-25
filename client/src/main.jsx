@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContextProvider.jsx";
+import { UserProvider } from "./context/UserContextProvider.jsx";
 import App from "./App.jsx";
 
 import "./sass/breakpoints.scss";
@@ -15,7 +16,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
         <BrowserRouter>
             <AuthProvider>
-                <App />
+                <UserProvider>
+                    <App />
+                </UserProvider>
             </AuthProvider>
         </BrowserRouter>
     </React.StrictMode>
