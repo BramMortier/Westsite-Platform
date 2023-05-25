@@ -1,5 +1,7 @@
 import "./input.scss";
 
+// TODO make the input type dynamic aswell :)
+
 const Input = ({ id, name, placeholder, value, onChange, errorMessage, children }) => {
     return (
         <div className="input">

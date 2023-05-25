@@ -18,7 +18,11 @@
     --fw-bold: 800;
 }
 
-body {
+body,
+input,
+textarea,
+label,
+legend {
     font-family: var(--font);
     font-size: var(--fs-sm);
     color: var(--gray-500);

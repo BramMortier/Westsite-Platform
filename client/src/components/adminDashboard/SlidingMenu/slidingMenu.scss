@@ -47,6 +47,10 @@
     }
 
     &__body {
-        overflow-y: scroll;
+        overflow-y: auto;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
 }

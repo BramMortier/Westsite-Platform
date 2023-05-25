@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { MemberActions, MemberTable, SlidingMenu } from "@components";
+import { MemberActions, MemberTable, SlidingMenu, AddUserForm } from "@components";
 import "./manageMembersPage.scss";
 
 const ManageMembersPage = () => {
@@ -8,7 +8,9 @@ const ManageMembersPage = () => {
 
     return (
         <React.Fragment>
-            <SlidingMenu title="Nieuw Lid Toevoegen" open={createUserMenuOpen} setOpen={setCreateUserMenuOpen}></SlidingMenu>
+            <SlidingMenu title="Nieuw Lid Toevoegen" open={createUserMenuOpen} setOpen={setCreateUserMenuOpen}>
+                <AddUserForm />
+            </SlidingMenu>
             <aside className="manage-members-page__sidebar"></aside>
             <main className="manage-members-page__main">
                 <MemberActions setCreateUserMenuOpen={setCreateUserMenuOpen} />

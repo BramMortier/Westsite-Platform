@@ -37,7 +37,7 @@ export const userReducer = (state, action) => {
 export const UserProvider = ({ children }) => {
     const [state, dispatch] = useReducer(userReducer, { users: [] });
 
-    const filterUser = (userId) => {
+    const getUserById = (userId) => {
         return state.users.find((user) => user._id === userId);
     };
 
@@ -49,7 +49,7 @@ export const UserProvider = ({ children }) => {
         fetchUsers();
     }, []);
 
-    return <UserContext.Provider value={{ ...state, dispatch, filterUser }}>{children}</UserContext.Provider>;
+    return <UserContext.Provider value={{ ...state, dispatch, getUserById }}>{children}</UserContext.Provider>;
 };
 
 export default UserContext;

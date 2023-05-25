@@ -15,6 +15,7 @@ export { default as MemberTable } from "./adminDashboard/MemberTable/MemberTable
 export { default as MemberFilters } from "./adminDashboard/MemberFilters/MemberFilters";
 export { default as MemberTableRow } from "./adminDashboard/MemberTableRow/MemberTableRow";
 export { default as SlidingMenu } from "./adminDashboard/SlidingMenu/SlidingMenu";
+export { default as AddUserForm } from "./adminDashboard/AddUserForm/AddUserForm";
 
 export { default as DefaultLayout } from "./layout/DefaultLayout/DefaultLayout";
 export { default as DashboardLayout } from "./layout/DashboardLayout/DashboardLayout";
