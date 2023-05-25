@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useUserContext } from "../../../hooks/useUserContext";
+import { useUserContext } from "@hooks/useUserContext";
 import { MemberFilters, MemberTableRow, Pagination } from "@components";
 import "./memberTable.scss";
 
@@ -9,25 +9,32 @@ const MemberTable = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage, setItemsPerPage] = useState(5);
     const [searchTerm, setSearchTerm] = useState("");
+    const [userTypeToggle, setUserTypeToggle] = useState("");
 
     const userTableColumns = ["Naam", "Geboortejaar", "Home Cable", "Woonplaats", "Contact Info", "Lid/Trainer"];
 
     useEffect(() => {
-        if (!searchTerm) {
+        if (!searchTerm && !userTypeToggle) {
             setFilteredUsers(users);
         } else {
             const term = searchTerm.toLocaleLowerCase();
 
-            const result = users.filter((user) => {
+            let filteredUsers = users.filter((user) => {
                 const userName = `${user.firstname} ${user.lastname}`.toLowerCase();
                 const userHomeCable = user.homeCable.toLowerCase();
                 const userAddress = user.address.toLowerCase();
                 return userName.includes(term) || userHomeCable.includes(term) || userAddress.includes(term);
             });
 
-            setFilteredUsers(result);
+            if (userTypeToggle) {
+                filteredUsers = filteredUsers.filter(
+                    (user) => (userTypeToggle === "Trainers" && user.trainer) || (userTypeToggle === "Leden" && !user.trainer)
+                );
+            }
+
+            setFilteredUsers(filteredUsers);
         }
-    }, [searchTerm, users]);
+    }, [searchTerm, userTypeToggle, users]);
 
     const indexOfLastUser = currentPage * itemsPerPage;
     const indexOfFirstUser = indexOfLastUser - itemsPerPage;
@@ -35,12 +42,21 @@ const MemberTable = () => {
 
     return (
         <section className="member-table">
-            <MemberFilters itemsPerPage={itemsPerPage} setItemsPerPage={setItemsPerPage} setSearchTerm={setSearchTerm} />
+            <MemberFilters
+                itemsPerPage={itemsPerPage}
+                setItemsPerPage={setItemsPerPage}
+                setSearchTerm={setSearchTerm}
+                filteredUsers={filteredUsers}
+                userTypeToggle={userTypeToggle}
+                setUserTypeToggle={setUserTypeToggle}
+            />
             <table className="member-table__container">
                 <thead className="member-table__head">
                     <tr>{userTableColumns && userTableColumns.map((column, index) => <th key={index}>{column}</th>)}</tr>
                 </thead>
-                <tbody className="member-table__body">{users && slicedUsers.map((user) => <MemberTableRow key={user._id} user={user} />)}</tbody>
+                <tbody className="member-table__body">
+                    {slicedUsers && slicedUsers.map((user) => <MemberTableRow key={user._id} user={user} />)}
+                </tbody>
             </table>
             <div className="member-table__pagination">
                 <Pagination

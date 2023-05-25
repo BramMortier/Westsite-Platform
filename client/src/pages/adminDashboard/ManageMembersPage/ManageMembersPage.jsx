@@ -1,16 +1,17 @@
 import React, { useState } from "react";
-import { MemberActions } from "@components";
+import { MemberActions, MemberTable, SlidingMenu } from "@components";
 import "./manageMembersPage.scss";
-import { MemberTable } from "@components";
 
 const ManageMembersPage = () => {
     const [userDetailSidebarOpen, setUserDetailSidebarOpen] = useState(false);
+    const [createUserMenuOpen, setCreateUserMenuOpen] = useState(false);
 
     return (
         <React.Fragment>
+            <SlidingMenu title="Nieuw Lid Toevoegen" open={createUserMenuOpen} setOpen={setCreateUserMenuOpen}></SlidingMenu>
             <aside className="manage-members-page__sidebar"></aside>
             <main className="manage-members-page__main">
-                <MemberActions />
+                <MemberActions setCreateUserMenuOpen={setCreateUserMenuOpen} />
                 <MemberTable />
             </main>
         </React.Fragment>

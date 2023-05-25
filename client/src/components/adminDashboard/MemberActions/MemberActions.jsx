@@ -1,7 +1,7 @@
 import { Button } from "@components";
 import "./memberActions.scss";
 
-const MemberActions = () => {
+const MemberActions = ({ setCreateUserMenuOpen }) => {
     return (
         <section className="member-actions">
             <div className="member-actions__title">
@@ -10,7 +10,7 @@ const MemberActions = () => {
                 </h3>
             </div>
             <div className="member-actions__btns">
-                <Button type="primary">
+                <Button type="primary" onClick={() => setCreateUserMenuOpen(true)}>
                     Lid Toevoegen
                     <img src="/icons/plus-dark.svg" alt="plus icon" />
                 </Button>

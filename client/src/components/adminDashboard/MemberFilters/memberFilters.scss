@@ -11,6 +11,29 @@
         display: flex;
         align-items: center;
         gap: var(--space-sm);
-        width: 100%;
+
+        &:first-child {
+            width: 100%;
+        }
+    }
+
+    &__toggle-button {
+        height: 50px;
+        padding-inline: var(--space-lg);
+        outline: none;
+        background-color: var(--gray-100);
+        border: 1px solid var(--gray-300);
+        border-radius: 5px;
+        transition: all ease 0.2s;
+
+        &--active {
+            border: 1px solid var(--gray-500);
+            background-color: var(--gray-200);
+        }
+
+        &:hover {
+            background-color: var(--gray-200);
+            cursor: pointer;
+        }
     }
 }
