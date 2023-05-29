@@ -50,14 +50,16 @@ const MemberTable = () => {
                 userTypeToggle={userTypeToggle}
                 setUserTypeToggle={setUserTypeToggle}
             />
-            <table className="member-table__container">
-                <thead className="member-table__head">
-                    <tr>{userTableColumns && userTableColumns.map((column, index) => <th key={index}>{column}</th>)}</tr>
-                </thead>
-                <tbody className="member-table__body">
-                    {slicedUsers && slicedUsers.map((user) => <MemberTableRow key={user._id} user={user} />)}
-                </tbody>
-            </table>
+            <div className="member-table__wrapper">
+                <table className="member-table__container">
+                    <thead className="member-table__head">
+                        <tr>{userTableColumns && userTableColumns.map((column, index) => <th key={index}>{column}</th>)}</tr>
+                    </thead>
+                    <tbody className="member-table__body">
+                        {slicedUsers && slicedUsers.map((user) => <MemberTableRow key={user._id} user={user} />)}
+                    </tbody>
+                </table>
+            </div>
             <div className="member-table__pagination">
                 <Pagination
                     items={filteredUsers}

@@ -4,11 +4,31 @@
     padding-inline: var(--space-2xl);
     margin-bottom: var(--space-3xl);
 
+    &__wrapper {
+        overflow-x: auto;
+        width: 0;
+        min-width: 100%;
+        border-right: 1px solid var(--gray-300);
+        border-left: 1px solid var(--gray-300);
+
+        &::-webkit-scrollbar-track {
+            background-color: var(--gray-100);
+        }
+
+        &::-webkit-scrollbar {
+            height: 0.5rem;
+            background-color: var(--white);
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: var(--gray-300);
+            padding-inline: var(--space-3xs);
+        }
+    }
+
     &__container {
-        border-collapse: collapse;
         width: 100%;
-        max-width: 1600px;
-        overflow-x: scroll;
+        border-collapse: collapse;
         white-space: nowrap;
     }
 
@@ -26,7 +46,8 @@
 
     &__body {
         tr {
-            border: 1px solid var(--gray-300);
+            border-top: 1px solid var(--gray-300);
+            border-bottom: 1px solid var(--gray-300);
 
             &:nth-child(odd) {
                 background-color: var(--gray-100);
