@@ -1,0 +1,26 @@
+.error-messages {
+    &__list {
+        display: flex;
+        flex-direction: column;
+        font-family: var(--font);
+        background-color: var(--error-bg);
+        border-radius: 3px;
+    }
+
+    &__error {
+        padding: var(--space-3xs) var(--space-2xs);
+        display: flex;
+        align-items: center;
+        gap: var(--space-2xs);
+
+        img {
+            width: 16px;
+            height: fit-content;
+        }
+    }
+
+    &__error-message {
+        font-size: var(--fs-xs);
+        color: var(--error-text);
+    }
+}

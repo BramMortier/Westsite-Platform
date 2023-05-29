@@ -1,6 +1,23 @@
 .add-user-form {
     margin-bottom: var(--space-3xl);
 
+    &__general-message {
+        width: 100%;
+        padding: var(--space-sm) var(--space-md);
+        border-radius: 5px;
+        margin-bottom: var(--space-md);
+
+        &--ok {
+            background-color: var(--sea-blue-200);
+            color: var(--sea-blue-600);
+        }
+
+        &--error {
+            background-color: var(--error-bg);
+            color: var(--error-text);
+        }
+    }
+
     fieldset {
         all: initial;
         display: flex;
@@ -11,6 +28,7 @@
         margin-bottom: var(--space-xl);
 
         legend {
+            color: var(--black);
             margin-bottom: var(--space-lg);
             font-size: var(--fs-md);
             font-weight: var(--fw-semi-bold);
@@ -18,7 +36,8 @@
     }
 
     &__row {
-        display: flex;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         gap: var(--space-sm);
     }
 
@@ -27,6 +46,10 @@
         flex-direction: column;
         width: 100%;
         gap: var(--space-2xs);
+
+        &--full-width {
+            grid-column: span 2;
+        }
 
         label {
             font-weight: var(--fw-semi-bold);

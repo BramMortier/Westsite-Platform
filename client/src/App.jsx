@@ -2,7 +2,6 @@ import { Routes, Route } from "react-router-dom";
 import routes from "@config/routes";
 import {
     LoginPage,
-    RegisterPage,
     HomePage,
     ProfilePage,
     TrickInfoPage,
@@ -20,7 +19,6 @@ const App = () => {
             <Route path="/" element={<DefaultLayout />}>
                 <Route path={routes.home} element={<HomePage />} />
                 <Route path={routes.login} element={<LoginPage />} />
-                <Route path={routes.register} element={<RegisterPage />} />
                 <Route path={routes.profile} element={<ProfilePage />} />
                 <Route path={routes.trainingSessins} element={<TrainingSessionsPage />} />
                 <Route path={routes.trickInfo} element={<TrickInfoPage />} />

@@ -1,16 +1,20 @@
+import React from "react";
+import { ErrorMessages } from "@components";
 import "./input.scss";
 
 // TODO make the input type dynamic aswell :)
 
-const Input = ({ id, name, placeholder, value, onChange, errorMessage, children }) => {
+const Input = ({ type, id, name, placeholder, value, onChange, errorMessages, children }) => {
     return (
-        <div className="input">
-            {children}
-            <div className="input__main">
-                <input type="text" id={id} name={name} placeholder={placeholder} value={value} onChange={onChange} />
+        <React.Fragment>
+            <div className="input">
+                {children}
+                <div className="input__main">
+                    <input type={type} id={id} name={name} placeholder={placeholder} value={value} onChange={onChange} />
+                </div>
             </div>
-            {errorMessage && <span>{errorMessage}</span>}
-        </div>
+            <ErrorMessages messages={errorMessages} />
+        </React.Fragment>
     );
 };
 

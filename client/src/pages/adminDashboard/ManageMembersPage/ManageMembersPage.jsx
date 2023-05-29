@@ -9,7 +9,7 @@ const ManageMembersPage = () => {
     return (
         <React.Fragment>
             <SlidingMenu title="Nieuw Lid Toevoegen" open={createUserMenuOpen} setOpen={setCreateUserMenuOpen}>
-                <AddUserForm />
+                <AddUserForm setCreateUserMenuOpen={setCreateUserMenuOpen} />
             </SlidingMenu>
             <aside className="manage-members-page__sidebar"></aside>
             <main className="manage-members-page__main">

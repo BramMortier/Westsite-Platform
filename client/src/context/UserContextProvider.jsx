@@ -3,18 +3,6 @@ import axios from "@config/axios";
 
 export const UserContext = createContext();
 
-export const setUsers = (users) => {
-    return { type: "SET_USERS", data: users };
-};
-
-export const createUser = (userData) => {
-    return { type: "CREATE_USER", data: userData };
-};
-
-export const deleteUser = (userId) => {
-    return { type: "DELETE_USER", data: userId };
-};
-
 export const userReducer = (state, action) => {
     switch (action.type) {
         case "SET_USERS":
@@ -41,15 +29,27 @@ export const UserProvider = ({ children }) => {
         return state.users.find((user) => user._id === userId);
     };
 
+    const setUsers = (users) => {
+        dispatch({ type: "SET_USERS", data: users });
+    };
+
+    const createUser = (userData) => {
+        dispatch({ type: "CREATE_USER", data: userData });
+    };
+
+    const deleteUser = (userId) => {
+        dispatch({ type: "DELETE_USER", data: userId });
+    };
+
     useEffect(() => {
         const fetchUsers = async () => {
             const response = await axios.get("/users");
-            dispatch(setUsers(response.data.users));
+            setUsers(response.data.users);
         };
         fetchUsers();
     }, []);
 
-    return <UserContext.Provider value={{ ...state, dispatch, getUserById }}>{children}</UserContext.Provider>;
+    return <UserContext.Provider value={{ ...state, dispatch, getUserById, createUser, deleteUser }}>{children}</UserContext.Provider>;
 };
 
 export default UserContext;

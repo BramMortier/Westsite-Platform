@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 const register = async (req, res) => {
-    const { firstname, lastname, email, password } = req.body;
+    const { firstname, lastname, email, password, phoneNumber, birthYear, homeCable, address, trainer } = req.body;
 
     try {
         let user = await User.findOne({ email });
@@ -15,19 +15,19 @@ const register = async (req, res) => {
             lastname,
             email,
             password,
-            phoneNumber: "0484796229",
-            birthYear: 2003,
-            homeCable: "Outsider Cablepark",
-            address: "Oudenaarde, België",
-            trainer: true,
+            phoneNumber,
+            birthYear,
+            homeCable,
+            address,
+            trainer,
         });
 
         await user.save();
 
-        res.status(201).json({ status: "OK", message: "Registration succes" });
+        res.status(201).json({ status: "OK", message: "Account created succesfully" });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ status: "ERROR", message: "Registration failed" });
+        res.status(500).json({ status: "ERROR", message: "Failed to create Account" });
     }
 };
 
