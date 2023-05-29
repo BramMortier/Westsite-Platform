@@ -1,7 +1,26 @@
+import React, { useState } from "react";
+import { SlidingMenu, TrickActions, TrickList, TrickFilters, TrickStatistics, TrickDetail, AddTrickForm } from "@components";
 import "./manageTricksPage.scss";
 
 const ManageTricksPage = () => {
-    return <div>ManageTricksPage</div>;
+    const [createTrickMenuOpen, setCreateTrickMenuOpen] = useState(false);
+
+    return (
+        <React.Fragment>
+            <SlidingMenu title="Nieuwe Trick Toevoegen" open={createTrickMenuOpen} setOpen={setCreateTrickMenuOpen}>
+                <AddTrickForm />
+            </SlidingMenu>
+            <aside className="manage-tricks-page__sidebar">
+                <TrickFilters />
+                <TrickStatistics />
+                <TrickDetail />
+            </aside>
+            <main className="manage-tricks-page__main">
+                <TrickActions />
+                <TrickList />
+            </main>
+        </React.Fragment>
+    );
 };
 
 export default ManageTricksPage;

@@ -11,13 +11,22 @@ export { default as Header } from "./userPortal/Header/Header";
 export { default as Footer } from "./userPortal/Footer/Footer";
 
 export { default as AdminHeader } from "./adminDashboard/AdminHeader/AdminHeader";
+export { default as SlidingMenu } from "./adminDashboard/SlidingMenu/SlidingMenu";
+
 export { default as MemberActions } from "./adminDashboard/MemberActions/MemberActions";
 export { default as MemberTable } from "./adminDashboard/MemberTable/MemberTable";
 export { default as MemberFilters } from "./adminDashboard/MemberFilters/MemberFilters";
 export { default as MemberTableRow } from "./adminDashboard/MemberTableRow/MemberTableRow";
-export { default as SlidingMenu } from "./adminDashboard/SlidingMenu/SlidingMenu";
 export { default as AddUserForm } from "./adminDashboard/AddUserForm/AddUserForm";
 export { default as MemberDetail } from "./adminDashboard/MemberDetail/MemberDetail";
+
+export { default as TrickActions } from "./adminDashboard/TrickActions/TrickActions";
+export { default as TrickList } from "./adminDashboard/TrickList/TrickList";
+export { default as TrickFilters } from "./adminDashboard/TrickFilters/TrickFilters";
+export { default as TrickDetail } from "./adminDashboard/TrickDetail/TrickDetail";
+export { default as TrickStatistics } from "./adminDashboard/TrickStatistics/TrickStatistics";
+export { default as AddTrickForm } from "./adminDashboard/AddTrickForm/AddTrickForm";
+export { default as TrickCard } from "./adminDashboard/TrickCard/TrickCard";
 
 export { default as DefaultLayout } from "./layout/DefaultLayout/DefaultLayout";
 export { default as DashboardLayout } from "./layout/DashboardLayout/DashboardLayout";
