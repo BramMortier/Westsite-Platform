@@ -8,7 +8,7 @@ const ErrorMessages = ({ messages }) => {
                 <div className="error-messages__list">
                     {messages.map((message, index) => (
                         <div key={index} className="error-messages__error">
-                            <img src="/icons/exclamation-circle2.svg" alt="exclamation icon" />
+                            <img src="/icons/error-circle.svg" alt="exclamation icon" />
                             <p className="error-messages__error-message">{message}</p>
                         </div>
                     ))}

@@ -1,4 +1,8 @@
 .member-table-row {
+    &:hover {
+        cursor: pointer;
+    }
+
     &__value {
         display: flex;
     }

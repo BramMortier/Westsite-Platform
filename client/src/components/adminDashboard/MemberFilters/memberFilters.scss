@@ -1,6 +1,7 @@
 .member-filters {
     display: flex;
     justify-content: space-between;
+    gap: var(--space-md);
     align-items: center;
     padding: var(--space-sm);
     border: 1px solid var(--gray-300);

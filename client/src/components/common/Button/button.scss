@@ -48,7 +48,11 @@
     }
 
     &--tertiary {
-        background-color: var(--gray-100);
+        background-color: var(--off-white);
         color: var(--black);
+
+        &:hover {
+            background-color: var(--gray-200);
+        }
     }
 }

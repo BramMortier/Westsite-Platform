@@ -1,0 +1,104 @@
+.member-detail {
+    min-width: 400px;
+
+    &__actions {
+        position: relative;
+        padding: var(--space-lg);
+        padding-bottom: 0;
+        min-height: 250px;
+        background-color: var(--gray-200);
+        background-image: url("/images/edit-user-banner.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: calc(80px + var(--space-sm));
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--bg-overlay);
+            mix-blend-mode: multiply;
+            z-index: -1;
+        }
+    }
+
+    &__action-btns {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__profile-icon {
+        margin-bottom: -80px;
+        width: 160px;
+        height: 160px;
+        border-radius: 100%;
+        background-color: var(--gray-100);
+    }
+
+    &__general-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-2xs);
+        margin-bottom: var(--space-sm);
+
+        p {
+            font-size: var(--fs-xl);
+            color: var(--black);
+        }
+
+        div {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+    }
+
+    &__tag {
+        padding: var(--space-3xs) var(--space-xs);
+        background-color: var(--lime-green-500);
+        color: var(--lime-green-900);
+        font-weight: var(--fw-semi-bold);
+        width: fit-content;
+    }
+
+    &__detailed-info {
+        display: grid;
+        padding: var(--space-2xs);
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: var(--space-2xs);
+    }
+
+    &__infopiece {
+        background-color: var(--gray-100);
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        padding: var(--space-xs);
+        gap: var(--space-3xs);
+    }
+
+    &__infopiece-title {
+        display: flex;
+        align-items: center;
+        width: fit-content;
+        gap: var(--space-xs);
+        width: fit-content;
+
+        img {
+            height: 18px;
+            width: 18px;
+        }
+    }
+}

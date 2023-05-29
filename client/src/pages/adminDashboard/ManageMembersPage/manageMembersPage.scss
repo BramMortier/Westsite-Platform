@@ -22,8 +22,7 @@
 
     &__sidebar {
         grid-area: aside;
-        min-width: 400px;
-        background-color: var(--gray-200);
         height: calc(100vh - 103.33px);
+        box-shadow: 5px 0px 16px var(--drop-shadow);
     }
 }

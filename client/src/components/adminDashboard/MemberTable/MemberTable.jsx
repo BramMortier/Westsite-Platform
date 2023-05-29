@@ -3,11 +3,11 @@ import { useUserContext } from "@hooks/useUserContext";
 import { MemberFilters, MemberTableRow, Pagination } from "@components";
 import "./memberTable.scss";
 
-const MemberTable = () => {
+const MemberTable = ({ setSelectedUser }) => {
     const { users } = useUserContext();
     const [filteredUsers, setFilteredUsers] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [itemsPerPage, setItemsPerPage] = useState(5);
+    const [itemsPerPage, setItemsPerPage] = useState(10);
     const [searchTerm, setSearchTerm] = useState("");
     const [userTypeToggle, setUserTypeToggle] = useState("");
 
@@ -56,7 +56,7 @@ const MemberTable = () => {
                         <tr>{userTableColumns && userTableColumns.map((column, index) => <th key={index}>{column}</th>)}</tr>
                     </thead>
                     <tbody className="member-table__body">
-                        {slicedUsers && slicedUsers.map((user) => <MemberTableRow key={user._id} user={user} />)}
+                        {slicedUsers && slicedUsers.map((user) => <MemberTableRow key={user._id} user={user} setSelectedUser={setSelectedUser} />)}
                     </tbody>
                 </table>
             </div>
