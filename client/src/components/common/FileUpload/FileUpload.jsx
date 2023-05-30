@@ -1,29 +1,41 @@
 import { useRef, useState } from "react";
 import { Button } from "@components";
+import axios from "@config/axios";
 import "./fileUpload.scss";
 
 const FileUpload = ({ file, onFileChange }) => {
     const fileInput = useRef();
 
-    const [uploadedFiles, setUploadedFiles] = useState({});
+    const [selectedFiles, setSelectedFiles] = useState({});
 
     const openFileExplorer = () => {
         fileInput.current.click();
     };
 
     const handleFileChange = (e) => {
-        setUploadedFiles([...e.target.files]);
+        setSelectedFiles([...e.target.files]);
     };
 
     const handleFileUploadSubmit = async (e) => {
         e.preventDefault();
+
+        console.log(selectedFiles);
+
+        const formData = new FormData();
+        selectedFiles.forEach((file) => formData.append("files", file));
+
+        const response = await axios.post("/files/uploadFile", formData, {
+            headers: { "Content-Type": "multipart/form-data" },
+        });
+
+        console.log(response);
     };
 
     return (
         <section className="file-upload">
-            {uploadedFiles.length ? (
+            {selectedFiles.length ? (
                 <ul className="file-upload__uploaded-files">
-                    {uploadedFiles.map((file, index) => (
+                    {selectedFiles.map((file, index) => (
                         <li key={index} className="file-upload__uploaded-file">
                             <p>{file.name}</p>
                             <p>{`${(file.size / (1024 * 1024)).toFixed(2)} MB`}</p>
@@ -46,7 +58,7 @@ const FileUpload = ({ file, onFileChange }) => {
                 </Button>
             </div>
 
-            <input className="file-upload__input" type="file" multiple ref={fileInput} onChange={handleFileChange} />
+            <input className="file-upload__input" type="file" name="files" multiple ref={fileInput} onChange={handleFileChange} />
         </section>
     );
 };
