@@ -8,6 +8,23 @@
         min-height: 300px;
     }
 
+    &__general-message {
+        width: 100%;
+        padding: var(--space-sm) var(--space-md);
+        border-radius: 5px;
+        margin-bottom: var(--space-xs);
+
+        &--ok {
+            background-color: var(--sea-blue-200);
+            color: var(--sea-blue-600);
+        }
+
+        &--error {
+            background-color: var(--error-bg);
+            color: var(--error-text);
+        }
+    }
+
     &__uploaded-file {
         border-radius: 5px;
         display: flex;

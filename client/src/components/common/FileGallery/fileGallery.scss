@@ -53,11 +53,13 @@
         }
     }
 
-    &__file {
+    &__file img {
         aspect-ratio: 1 / 1;
         border-radius: 5px;
         background-color: var(--gray-200);
         transition: all ease 0.3s;
+
+        object-fit: cover;
 
         &:hover {
             cursor: pointer;

@@ -3,10 +3,13 @@ import { Button } from "@components";
 import axios from "@config/axios";
 import "./fileUpload.scss";
 
-const FileUpload = ({ file, onFileChange }) => {
+// TODO add a warning for user (max file size = 1MB)
+
+const FileUpload = ({ file, onFileChange, setActiveTab }) => {
     const fileInput = useRef();
 
     const [selectedFiles, setSelectedFiles] = useState({});
+    const [fileUploadMessage, setFileUploadMessage] = useState(null);
 
     const openFileExplorer = () => {
         fileInput.current.click();
@@ -19,20 +22,40 @@ const FileUpload = ({ file, onFileChange }) => {
     const handleFileUploadSubmit = async (e) => {
         e.preventDefault();
 
-        console.log(selectedFiles);
+        setFileUploadMessage(null);
 
         const formData = new FormData();
         selectedFiles.forEach((file) => formData.append("files", file));
 
-        const response = await axios.post("/files/uploadFile", formData, {
-            headers: { "Content-Type": "multipart/form-data" },
-        });
+        try {
+            const response = await axios.post("/files/uploadFile", formData, {
+                headers: { "Content-Type": "multipart/form-data" },
+            });
 
-        console.log(response);
+            setFileUploadMessage({ type: response.data.status, content: response.data.message });
+            if (response.data.status === "OK") {
+                setTimeout(() => {
+                    setActiveTab("Files");
+                    setFileUploadMessage(null);
+                    setSelectedFiles({});
+                }, 1000);
+            }
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     return (
         <section className="file-upload">
+            {fileUploadMessage && (
+                <div
+                    className={`file-upload__general-message ${
+                        fileUploadMessage.type === "OK" ? "file-upload__general-message--ok" : "file-upload__general-message--error"
+                    }`}
+                >
+                    {fileUploadMessage.content}
+                </div>
+            )}
             {selectedFiles.length ? (
                 <ul className="file-upload__uploaded-files">
                     {selectedFiles.map((file, index) => (

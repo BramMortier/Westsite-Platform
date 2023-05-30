@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const gracefulShutdown = require("./utils/gracefulShutdown");
 const connectDB = require("./config/db");
 const dotenv = require("dotenv");
+const path = require("path");
 
 dotenv.config();
 connectDB();
@@ -12,6 +13,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors());
+app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 
 app.use("/api/auth", require("./routes/authRoutes"));

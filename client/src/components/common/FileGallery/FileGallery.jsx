@@ -1,12 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FileInfo, FileUpload, Input } from "@components";
+import axios from "@config/axios";
 import "./fileGallery.scss";
+
+// TODO check deze file nog ma ke op afwerkingsfouten want twas laat
 
 const FileGallery = () => {
     const [activeTab, setActiveTab] = useState("Files");
     const [fileInfo, setFileInfo] = useState(false);
+    const [uploads, setUploads] = useState([]);
 
     const tabs = ["Files", "Upload new files"];
+
+    useEffect(() => {
+        const fetchUploads = async () => {
+            try {
+                const response = await axios.get("/files");
+                setUploads(response.data.files);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        fetchUploads();
+    }, []);
 
     return (
         <div className="file-gallery">
@@ -32,25 +48,18 @@ const FileGallery = () => {
                         </div>
                         <div className="file-gallery__files-main">
                             <ul className="file-gallery__file-list">
-                                <li className="file-gallery__file"></li>
-                                <li className="file-gallery__file"></li>
-                                <li className="file-gallery__file"></li>
-                                <li className="file-gallery__file"></li>
-                                <li className="file-gallery__file"></li>
-                                <li className="file-gallery__file"></li>
-                                <li className="file-gallery__file"></li>
-                                <li className="file-gallery__file"></li>
-                                <li className="file-gallery__file"></li>
-                                <li className="file-gallery__file"></li>
-                                <li className="file-gallery__file"></li>
-                                <li className="file-gallery__file"></li>
-                                <li className="file-gallery__file"></li>
+                                {uploads &&
+                                    uploads.map((upload, index) => (
+                                        <li key={index} className="file-gallery__file">
+                                            <img src={`http://localhost:3000/api/files/${upload}`} alt="uploaded file" />
+                                        </li>
+                                    ))}
                             </ul>
                             {fileInfo && <FileInfo />}
                         </div>
                     </section>
                 )}
-                {activeTab === "Upload new files" && <FileUpload />}
+                {activeTab === "Upload new files" && <FileUpload setActiveTab={setActiveTab} />}
             </div>
         </div>
     );

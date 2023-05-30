@@ -1,9 +1,11 @@
 const multer = require("multer");
 const path = require("path");
 
+// TODO set max allowed file size to 1MB
+
 const fileStorage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, "./uploads");
+        cb(null, "./public/uploads");
     },
     filename: function (req, file, cb) {
         const uniqueSuffix = Date.now();
