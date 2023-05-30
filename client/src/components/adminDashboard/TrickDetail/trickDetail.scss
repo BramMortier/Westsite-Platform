@@ -1,0 +1,31 @@
+.trick-detail {
+    border-bottom: 1px solid var(--gray-300);
+    margin-bottom: var(--space-md);
+
+    &--active {
+        .trick-detail__menu-label img {
+            transform: rotate(180deg);
+        }
+    }
+
+    &__menu-label {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        padding-bottom: var(--space-md);
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        img {
+            width: 12px;
+            transition: all ease 0.2s;
+        }
+
+        h4 {
+            font-size: var(--fs-md);
+            font-weight: var(--fw-semi-bold);
+        }
+    }
+}

@@ -16,7 +16,7 @@ const ManageTricksPage = () => {
                 <TrickDetail />
             </aside>
             <main className="manage-tricks-page__main">
-                <TrickActions />
+                <TrickActions setCreateTrickMenuOpen={setCreateTrickMenuOpen} />
                 <TrickList />
             </main>
         </React.Fragment>

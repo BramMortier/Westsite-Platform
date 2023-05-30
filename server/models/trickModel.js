@@ -19,7 +19,7 @@ const trickSchema = new Schema({
         type: String,
         required: true,
     },
-    kind: {
+    variant: {
         type: String,
         required: true,
     },
@@ -27,7 +27,7 @@ const trickSchema = new Schema({
         type: String,
         required: true,
     },
-    variants: [{ type: Schema.types.ObjectId, ref: "Trick" }],
+    matchingTricks: [{ type: Schema.types.ObjectId, ref: "Trick" }],
 });
 
 const trickModel = mongoose.model("Trick", trickSchema);

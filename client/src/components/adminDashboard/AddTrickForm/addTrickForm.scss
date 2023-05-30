@@ -1,0 +1,71 @@
+.add-trick-form {
+    margin-bottom: var(--space-3xl);
+    max-width: 700px;
+    width: 100%;
+
+    fieldset {
+        all: initial;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-sm);
+        padding-bottom: var(--space-xl);
+        border-bottom: 1px solid var(--gray-300);
+        margin-bottom: var(--space-xl);
+
+        legend {
+            color: var(--black);
+            margin-bottom: var(--space-lg);
+            font-size: var(--fs-md);
+            font-weight: var(--fw-semi-bold);
+        }
+    }
+
+    &__row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-sm);
+    }
+
+    &__group {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: var(--space-2xs);
+
+        &--full-width {
+            grid-column: span 3;
+        }
+
+        label {
+            font-weight: var(--fw-semi-bold);
+        }
+    }
+
+    &__group-tooltip {
+        font-family: var(--font);
+        font-size: var(--fs-xs);
+        line-height: var(--line-height-md);
+        color: var(--gray-400);
+    }
+
+    &__naming-conventions {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: var(--space-2xs);
+        color: var(--black);
+    }
+
+    &__comparable-tricks-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-2xs);
+    }
+
+    &__comparable-trick-tag {
+        padding: var(--space-3xs) var(--space-sm);
+        background-color: var(--lime-green-500);
+        color: var(--lime-green-900);
+        border-radius: 5px;
+        font-family: var(--font);
+    }
+}

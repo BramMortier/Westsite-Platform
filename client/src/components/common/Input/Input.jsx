@@ -10,7 +10,7 @@ const Input = ({ type, id, name, placeholder, value, onChange, errorMessages, ch
             <div className="input">
                 {children}
                 <div className="input__main">
-                    <input type={type} id={id} name={name} placeholder={placeholder} value={value} onChange={onChange} />
+                    <input autoComplete="off" type={type} id={id} name={name} placeholder={placeholder} value={value} onChange={onChange} />
                 </div>
             </div>
             <ErrorMessages messages={errorMessages} />

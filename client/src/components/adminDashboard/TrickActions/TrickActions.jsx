@@ -1,7 +1,7 @@
 import "./trickActions.scss";
 import { Button } from "@components";
 
-const TrickActions = () => {
+const TrickActions = ({ setCreateTrickMenuOpen }) => {
     return (
         <section className="trick-actions">
             <div className="trick-actions__title">
@@ -10,7 +10,7 @@ const TrickActions = () => {
                 </h3>
             </div>
             <div className="trick-actions__btns">
-                <Button type="primary">
+                <Button type="primary" onClick={() => setCreateTrickMenuOpen(true)}>
                     Trick Toevoegen
                     <img src="/icons/plus-dark.svg" alt="plus icon" />
                 </Button>
