@@ -24,8 +24,14 @@
         grid-area: aside;
         width: 400px;
         background-color: var(--off-white);
-        height: calc(100vh - 103.33px);
+        height: 100%;
+        max-height: calc(100vh - 103.33px);
+        overflow-y: auto;
         box-shadow: 5px 0px 16px var(--drop-shadow);
         padding: var(--space-lg);
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
 }

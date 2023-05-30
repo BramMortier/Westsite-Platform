@@ -41,4 +41,8 @@
         text-transform: uppercase;
         color: var(--black);
     }
+
+    &__description {
+        line-height: var(--line-height-md);
+    }
 }

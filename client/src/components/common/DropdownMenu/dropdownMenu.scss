@@ -5,7 +5,7 @@
     flex-direction: column;
     gap: var(--space-2xs);
     position: relative;
-    z-index: 99;
+    z-index: 10;
 
     &--stretched {
         .dropdown-menu__selected-value {
@@ -17,6 +17,8 @@
     }
 
     &--active {
+        z-index: 99;
+
         .dropdown-menu__options {
             opacity: 1;
             pointer-events: all;
