@@ -1,0 +1,45 @@
+.popup-menu {
+    border-radius: 5px;
+    background-color: var(--off-white);
+    box-shadow: 0px 0px 16px var(--drop-shadow);
+    padding: var(--space-sm);
+    margin: var(--space-2xl);
+
+    &__overlay {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        overflow-x: hidden;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--menu-overlay);
+        z-index: 1000;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        pointer-events: none;
+
+        &--active {
+            pointer-events: all;
+            opacity: 1;
+        }
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: var(--space-sm);
+
+        h4 {
+            font-size: var(--fs-lg);
+            font-weight: var(--fw-regular);
+            color: var(--black);
+        }
+    }
+
+    &__body {
+    }
+}

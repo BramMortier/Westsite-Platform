@@ -1,9 +1,9 @@
 import { useState, useRef } from "react";
-import { Input, Textarea, Button, DropdownMenu, ErrorMessages } from "@components";
+import { Input, FileUpload, Textarea, Button, DropdownMenu, ErrorMessages } from "@components";
 import validateForm from "@config/validation/validateForm";
 import "./addTrickForm.scss";
 
-const AddTrickForm = () => {
+const AddTrickForm = ({ setFileGalleryMenuOpen }) => {
     const trickFormInitialState = {
         name: "",
         description: "",
@@ -23,10 +23,7 @@ const AddTrickForm = () => {
     const variantOptions = ["all", "spin", "flip", "press", "transfer"];
 
     const handleTrickTagsChange = (selectedOption, name) => {
-        setTrickFormData({
-            ...trickFormData,
-            [name]: selectedOption,
-        });
+        setTrickFormData({ ...trickFormData, [name]: selectedOption });
     };
 
     const handleTrickFormChange = (e) => {
@@ -41,8 +38,6 @@ const AddTrickForm = () => {
     const handleTrickFormSubmit = async (e) => {
         e.preventDefault();
     };
-
-    console.log(trickFormData);
 
     return (
         <form className="add-trick-form" noValidate onSubmit={handleTrickFormSubmit}>
@@ -69,6 +64,8 @@ const AddTrickForm = () => {
                             </div>
                         </div>
                     </div>
+                </div>
+                <div className="add-trick-form__row">
                     <div className="add-trick-form__group add-trick-form__group--full-width">
                         <label htmlFor="">Beschrijving</label>
                         <Textarea
@@ -84,6 +81,15 @@ const AddTrickForm = () => {
                                 Waar moet je op letten als je hem wilt leren. Tips die je kan volgen om er naar op te bouwen. Wees specifiek.
                             </p>
                         </div>
+                    </div>
+                </div>
+                <div className="add-trick-form__row">
+                    <div className="add-trick-form__group">
+                        <label htmlFor="">Foto</label>
+                        <Button type="primary" onClick={() => setFileGalleryMenuOpen(true)}>
+                            Kies een bestand
+                            <img src="/icons/upload-dark.svg" alt="upload icon" />
+                        </Button>
                     </div>
                 </div>
             </fieldset>

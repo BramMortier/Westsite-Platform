@@ -1,5 +1,8 @@
 export { default as Button } from "./common/Button/Button";
 export { default as Input } from "./common/Input/Input";
+export { default as FileUpload } from "./common/FileUpload/FileUpload";
+export { default as FileGallery } from "./common/FileGallery/FileGallery";
+export { default as FileInfo } from "./common/FileInfo/FileInfo";
 export { default as Textarea } from "./common/Textarea/Textarea";
 export { default as ErrorMessages } from "./common/ErrorMessages/ErrorMessages";
 export { default as Pagination } from "./common/Pagination/Pagination";
@@ -13,6 +16,7 @@ export { default as Footer } from "./userPortal/Footer/Footer";
 
 export { default as AdminHeader } from "./adminDashboard/AdminHeader/AdminHeader";
 export { default as SlidingMenu } from "./adminDashboard/SlidingMenu/SlidingMenu";
+export { default as PopupMenu } from "./adminDashboard/PopupMenu/PopupMenu";
 
 export { default as MemberActions } from "./adminDashboard/MemberActions/MemberActions";
 export { default as MemberTable } from "./adminDashboard/MemberTable/MemberTable";

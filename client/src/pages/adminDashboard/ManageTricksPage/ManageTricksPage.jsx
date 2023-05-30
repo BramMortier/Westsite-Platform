@@ -1,14 +1,18 @@
 import React, { useState } from "react";
-import { SlidingMenu, TrickActions, TrickList, TrickFilters, TrickStatistics, TrickDetail, AddTrickForm } from "@components";
+import { SlidingMenu, PopupMenu, TrickActions, TrickList, TrickFilters, TrickStatistics, TrickDetail, AddTrickForm, FileGallery } from "@components";
 import "./manageTricksPage.scss";
 
 const ManageTricksPage = () => {
     const [createTrickMenuOpen, setCreateTrickMenuOpen] = useState(false);
+    const [fileGalleryMenuOpen, setFileGalleryMenuOpen] = useState(false);
 
     return (
         <React.Fragment>
+            <PopupMenu title="File gallery" open={fileGalleryMenuOpen} setOpen={setFileGalleryMenuOpen}>
+                <FileGallery />
+            </PopupMenu>
             <SlidingMenu title="Nieuwe Trick Toevoegen" open={createTrickMenuOpen} setOpen={setCreateTrickMenuOpen}>
-                <AddTrickForm />
+                <AddTrickForm setFileGalleryMenuOpen={setFileGalleryMenuOpen} />
             </SlidingMenu>
             <aside className="manage-tricks-page__sidebar">
                 <TrickFilters />

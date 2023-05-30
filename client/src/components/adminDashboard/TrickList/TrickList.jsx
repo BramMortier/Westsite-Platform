@@ -8,6 +8,7 @@ const TrickList = () => {
             <TrickCard />
             <TrickCard />
             <TrickCard />
+            <TrickCard />
         </section>
     );
 };
