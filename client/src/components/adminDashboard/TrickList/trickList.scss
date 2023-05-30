@@ -1,0 +1,8 @@
+.trick-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: var(--space-sm);
+    padding-inline: var(--space-xl);
+    margin-bottom: var(--space-3xl);
+}

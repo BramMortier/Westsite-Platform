@@ -1,0 +1,44 @@
+.trick-card {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-sm);
+    border-radius: 5px;
+    border: 1px solid var(--gray-300);
+    transition: all ease 0.2s;
+
+    &:hover {
+        cursor: pointer;
+        border: 1px solid var(--gray-500);
+        background-color: var(--gray-100);
+    }
+
+    &__thumbnail {
+        height: 200px;
+        width: 100%;
+        border-radius: 5px;
+        background-color: var(--gray-200);
+        margin-bottom: var(--space-sm);
+    }
+
+    &__name {
+        font-size: var(--fs-lg);
+        color: var(--black);
+        font-weight: var(--fw-regular);
+        margin-bottom: var(--space-2xs);
+    }
+
+    &__attributes {
+        display: flex;
+        align-items: center;
+        gap: var(--space-2xs);
+        margin-bottom: var(--space-sm);
+    }
+
+    &__tag {
+        padding: var(--space-2xs) var(--space-sm);
+        border-radius: 5px;
+        background-color: var(--lime-green-500);
+        text-transform: uppercase;
+        color: var(--black);
+    }
+}
