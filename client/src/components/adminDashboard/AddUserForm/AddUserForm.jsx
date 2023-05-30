@@ -39,6 +39,8 @@ const AddUserForm = ({ setCreateUserMenuOpen }) => {
         "Wakepark Gent",
     ];
 
+    // TODO make the dropdown menu update the state with the name prop instead of writing a seperate handleHomeCableChange function
+
     const handleHomeCableChange = (selectedOption) => {
         setUserFormData({ ...userFormData, homeCable: selectedOption });
     };

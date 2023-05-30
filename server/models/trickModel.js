@@ -19,14 +19,15 @@ const trickSchema = new Schema({
         type: String,
         required: true,
     },
-    variant: {
-        type: String,
-        required: true,
-    },
     type: {
         type: String,
         required: true,
     },
+    variant: {
+        type: String,
+        required: true,
+    },
+
     matchingTricks: [{ type: Schema.types.ObjectId, ref: "Trick" }],
 });
 

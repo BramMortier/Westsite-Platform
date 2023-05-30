@@ -1,5 +1,6 @@
 export { default as Button } from "./common/Button/Button";
 export { default as Input } from "./common/Input/Input";
+export { default as Textarea } from "./common/Textarea/Textarea";
 export { default as ErrorMessages } from "./common/ErrorMessages/ErrorMessages";
 export { default as Pagination } from "./common/Pagination/Pagination";
 export { default as DropdownMenu } from "./common/DropdownMenu/DropdownMenu";

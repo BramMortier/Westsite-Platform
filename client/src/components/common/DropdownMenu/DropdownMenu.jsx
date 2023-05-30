@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./dropdownMenu.scss";
 
-const DropdownMenu = ({ options, defaultOption, onOptionChange, type }) => {
+const DropdownMenu = ({ options, defaultOption, onOptionChange, type, name }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState(defaultOption || options[0]);
 
@@ -19,7 +19,7 @@ const DropdownMenu = ({ options, defaultOption, onOptionChange, type }) => {
                         onClick={() => {
                             setSelectedOption(option);
                             setIsOpen(false);
-                            if (onOptionChange) onOptionChange(option);
+                            if (onOptionChange) onOptionChange(option, name);
                         }}
                     >
                         {option}

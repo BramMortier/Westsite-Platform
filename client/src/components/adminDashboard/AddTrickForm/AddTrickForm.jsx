@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { Input, Button, DropdownMenu, ErrorMessages } from "@components";
+import { Input, Textarea, Button, DropdownMenu, ErrorMessages } from "@components";
 import validateForm from "@config/validation/validateForm";
 import "./addTrickForm.scss";
 
@@ -9,8 +9,8 @@ const AddTrickForm = () => {
         description: "",
         thumbnail: "",
         difficulty: "",
-        variant: "",
         type: "",
+        variant: "",
         matchingTricks: [],
     };
 
@@ -21,6 +21,13 @@ const AddTrickForm = () => {
     const difficultyOptions = ["all", "beginner", "basic", "intermediate", "hard", "pro", "crazy"];
     const typeOptions = ["all", "kicker", "obstacle", "airtrick"];
     const variantOptions = ["all", "spin", "flip", "press", "transfer"];
+
+    const handleTrickTagsChange = (selectedOption, name) => {
+        setTrickFormData({
+            ...trickFormData,
+            [name]: selectedOption,
+        });
+    };
 
     const handleTrickFormChange = (e) => {
         const { name, value } = e.target;
@@ -35,6 +42,8 @@ const AddTrickForm = () => {
         e.preventDefault();
     };
 
+    console.log(trickFormData);
+
     return (
         <form className="add-trick-form" noValidate onSubmit={handleTrickFormSubmit}>
             <fieldset>
@@ -42,7 +51,14 @@ const AddTrickForm = () => {
                 <div className="add-trick-form__row">
                     <div className="add-trick-form__group add-trick-form__group--full-width">
                         <label htmlFor="">Naam</label>
-                        <Input type="text" id="addTrickName" name="name" placeholder="voorbeeld: Heelside backside 360" />
+                        <Input
+                            type="text"
+                            id="addTrickName"
+                            name="name"
+                            placeholder="voorbeeld: Heelside backside 360"
+                            value={trickFormData.name}
+                            onChange={handleTrickFormChange}
+                        />
                         <div className="add-trick-form__group-tooltip">
                             <p>Probeer een korte maar duidelijke naam in te vullen. Let hierbij op volgende dingen:</p>
                             <div className="add-trick-form__naming-conventions">
@@ -55,7 +71,13 @@ const AddTrickForm = () => {
                     </div>
                     <div className="add-trick-form__group add-trick-form__group--full-width">
                         <label htmlFor="">Beschrijving</label>
-                        <Input type="text" id="addTrickDescription" name="description" placeholder="Schrijf een beschrijving" />
+                        <Textarea
+                            id="addTrickDescription"
+                            name="description"
+                            placeholder="Schrijf een beschrijving"
+                            value={trickFormData.description}
+                            onChange={handleTrickFormChange}
+                        />
                         <div className="add-trick-form__group-tooltip">
                             <p>
                                 Geef een duidelijke beschrijving over de trick. Waarom leer je deze trick bv: progressie naar een moeilijkere variant.
@@ -70,15 +92,15 @@ const AddTrickForm = () => {
                 <div className="add-trick-form__row">
                     <div className="add-trick-form__group">
                         <label htmlFor="">Moeilijkheidsgraad</label>
-                        <DropdownMenu type="stretched" options={difficultyOptions} />
+                        <DropdownMenu type="stretched" options={difficultyOptions} onOptionChange={handleTrickTagsChange} name="difficulty" />
                     </div>
                     <div className="add-trick-form__group">
                         <label htmlFor="">Type</label>
-                        <DropdownMenu type="stretched" options={typeOptions} />
+                        <DropdownMenu type="stretched" options={typeOptions} onOptionChange={handleTrickTagsChange} name="type" />
                     </div>
                     <div className="add-trick-form__group">
                         <label htmlFor="">Soort</label>
-                        <DropdownMenu type="stretched" options={variantOptions} />
+                        <DropdownMenu type="stretched" options={variantOptions} onOptionChange={handleTrickTagsChange} name="variant" />
                     </div>
                 </div>
             </fieldset>

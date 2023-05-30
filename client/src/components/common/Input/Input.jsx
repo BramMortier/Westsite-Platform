@@ -2,8 +2,6 @@ import React from "react";
 import { ErrorMessages } from "@components";
 import "./input.scss";
 
-// TODO make the input type dynamic aswell :)
-
 const Input = ({ type, id, name, placeholder, value, onChange, errorMessages, children }) => {
     return (
         <React.Fragment>
