@@ -19,8 +19,8 @@ app.use(express.json());
 app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/users", require("./routes/userRoutes"));
 app.use("/api/files", require("./routes/fileRoutes"));
-app.use("/api/trainingSessions", require("./routes/trickRoutes"));
-app.use("/api/tricks", require("./routes/trainingSessionRoutes"));
+app.use("/api/trainingSessions", require("./routes/trainingSessionRoutes"));
+app.use("/api/tricks", require("./routes/trickRoutes"));
 app.use("/api/newsposts", require("./routes/newspostRoutes"));
 
 let server;

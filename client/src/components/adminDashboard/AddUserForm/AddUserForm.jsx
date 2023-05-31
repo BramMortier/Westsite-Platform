@@ -220,7 +220,7 @@ const AddUserForm = ({ setCreateUserMenuOpen }) => {
                 </div>
             </fieldset>
             <div className="add-user-form__submit">
-                <Button type="primary">
+                <Button submit={true} type="primary">
                     <img src="/icons/plus-dark.svg" alt="plus icon" />
                     Toevoegen
                 </Button>

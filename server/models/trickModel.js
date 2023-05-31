@@ -1,4 +1,4 @@
-const mongoose = require("monogose");
+const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const trickSchema = new Schema({
@@ -28,7 +28,7 @@ const trickSchema = new Schema({
         required: true,
     },
 
-    matchingTricks: [{ type: Schema.types.ObjectId, ref: "Trick" }],
+    matchingTricks: [{ type: Schema.Types.ObjectId, ref: "Trick" }],
 });
 
 const trickModel = mongoose.model("Trick", trickSchema);

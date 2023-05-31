@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { Input, FileGallery, PopupMenu, Textarea, Button, DropdownMenu, ErrorMessages } from "@components";
 import { FileProvider } from "@context/FileContextProvider";
 import validateForm from "@config/validation/validateForm";
+import axios from "@config/axios";
 import "./addTrickForm.scss";
 
 const AddTrickForm = () => {
@@ -46,6 +47,16 @@ const AddTrickForm = () => {
 
     const handleTrickFormSubmit = async (e) => {
         e.preventDefault();
+
+        console.log("hello");
+
+        try {
+            const response = await axios.post("/tricks", trickFormData);
+            console.log("trying");
+            console.log(response);
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     return (
@@ -160,7 +171,7 @@ const AddTrickForm = () => {
                 </div>
             </fieldset>
             <div className="add-trick-form__submit">
-                <Button type="primary">
+                <Button submit={true} type="primary">
                     <img src="/icons/plus-dark.svg" alt="plus icon" />
                     Toevoegen
                 </Button>
