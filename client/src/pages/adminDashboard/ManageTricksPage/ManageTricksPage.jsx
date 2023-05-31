@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { SlidingMenu, PopupMenu, TrickActions, TrickList, TrickFilters, TrickStatistics, TrickDetail, AddTrickForm, FileGallery } from "@components";
+import { FileProvider } from "@context/FileContextProvider";
 import "./manageTricksPage.scss";
 
 const ManageTricksPage = () => {
@@ -8,9 +9,11 @@ const ManageTricksPage = () => {
 
     return (
         <React.Fragment>
-            <PopupMenu title="File gallery" open={fileGalleryMenuOpen} setOpen={setFileGalleryMenuOpen}>
-                <FileGallery />
-            </PopupMenu>
+            <FileProvider>
+                <PopupMenu title="Bestand galerij" open={fileGalleryMenuOpen} setOpen={setFileGalleryMenuOpen}>
+                    <FileGallery />
+                </PopupMenu>
+            </FileProvider>
             <SlidingMenu title="Nieuwe Trick Toevoegen" open={createTrickMenuOpen} setOpen={setCreateTrickMenuOpen}>
                 <AddTrickForm setFileGalleryMenuOpen={setFileGalleryMenuOpen} />
             </SlidingMenu>

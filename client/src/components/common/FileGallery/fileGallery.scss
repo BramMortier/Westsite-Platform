@@ -1,7 +1,4 @@
 .file-gallery {
-    max-width: 1000px;
-    width: 100%;
-
     &__tabs {
         display: flex;
         align-items: center;
@@ -11,7 +8,6 @@
 
     &__tab {
         padding: var(--space-3xs) var(--space-xs);
-        transition: all ease 0.3s;
         border-radius: 5px;
 
         &:hover {
@@ -29,13 +25,23 @@
         }
     }
 
+    &__files {
+        display: flex;
+        gap: var(--space-sm);
+    }
+
     &__files-main {
         display: flex;
-        gap: var(--space-xl);
+        flex-direction: column;
     }
 
     &__file-filters {
-        margin-bottom: var(--space-lg);
+        margin-bottom: var(--space-sm);
+
+        .input {
+            width: 100%;
+            max-width: 100%;
+        }
     }
 
     &__file-list {
@@ -43,7 +49,7 @@
         grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
         gap: var(--space-xs);
         flex-wrap: wrap;
-        max-width: 1100px;
+        max-width: 600px;
         width: 100%;
         max-height: 400px;
         overflow-y: auto;
@@ -58,11 +64,12 @@
         border-radius: 5px;
         background-color: var(--gray-200);
         transition: all ease 0.3s;
-
         object-fit: cover;
+        transition: all ease 0.2s;
 
         &:hover {
             cursor: pointer;
+            filter: brightness(70%);
         }
     }
 }

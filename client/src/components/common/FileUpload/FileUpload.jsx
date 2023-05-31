@@ -1,11 +1,13 @@
 import { useRef, useState } from "react";
 import { Button } from "@components";
-import axios from "@config/axios";
+import { useFileContext } from "@hooks/useFileContext";
 import "./fileUpload.scss";
 
 // TODO add a warning for user (max file size = 1MB)
+// TODO when there are selected files and the user uploads more they get reset change the handleFileChange function so that it keeps the previous selected files
 
 const FileUpload = ({ file, onFileChange, setActiveTab }) => {
+    const { createFiles } = useFileContext();
     const fileInput = useRef();
 
     const [selectedFiles, setSelectedFiles] = useState({});
@@ -24,24 +26,18 @@ const FileUpload = ({ file, onFileChange, setActiveTab }) => {
 
         setFileUploadMessage(null);
 
-        const formData = new FormData();
-        selectedFiles.forEach((file) => formData.append("files", file));
+        const fileData = new FormData();
+        selectedFiles.forEach((file) => fileData.append("files", file));
 
-        try {
-            const response = await axios.post("/files/uploadFile", formData, {
-                headers: { "Content-Type": "multipart/form-data" },
-            });
+        const response = await createFiles(fileData);
+        setFileUploadMessage({ type: response.status, content: response.message });
 
-            setFileUploadMessage({ type: response.data.status, content: response.data.message });
-            if (response.data.status === "OK") {
-                setTimeout(() => {
-                    setActiveTab("Files");
-                    setFileUploadMessage(null);
-                    setSelectedFiles({});
-                }, 1000);
-            }
-        } catch (error) {
-            console.log(error);
+        if (response.status === "OK") {
+            setTimeout(() => {
+                setActiveTab("Files");
+                setFileUploadMessage(null);
+                setSelectedFiles({});
+            }, 1000);
         }
     };
 

@@ -1,28 +1,26 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FileInfo, FileUpload, Input } from "@components";
-import axios from "@config/axios";
+import { useFileContext } from "@hooks/useFileContext";
 import "./fileGallery.scss";
 
 // TODO check deze file nog ma ke op afwerkingsfouten want twas laat
+// TODO rebuilt the filegallery layout so that the filters and file list are one column and the file info is one column
 
 const FileGallery = () => {
+    const { files } = useFileContext();
+
     const [activeTab, setActiveTab] = useState("Files");
-    const [fileInfo, setFileInfo] = useState(false);
-    const [uploads, setUploads] = useState([]);
+    const [fileInfo, setFileInfo] = useState(null);
 
     const tabs = ["Files", "Upload new files"];
 
-    useEffect(() => {
-        const fetchUploads = async () => {
-            try {
-                const response = await axios.get("/files");
-                setUploads(response.data.files);
-            } catch (error) {
-                console.log(error);
-            }
-        };
-        fetchUploads();
-    }, []);
+    const showFileInfo = (file) => {
+        if (file === fileInfo) {
+            setFileInfo(null);
+        } else {
+            setFileInfo(file);
+        }
+    };
 
     return (
         <div className="file-gallery">
@@ -38,25 +36,25 @@ const FileGallery = () => {
                         </li>
                     ))}
             </ul>
-            <div className="file-gallery__main">
+            <div className="file-gallery__content">
                 {activeTab === "Files" && (
                     <section className="file-gallery__files">
-                        <div className="file-gallery__file-filters">
-                            <Input type="text" placeholder="Zoeken naar files">
-                                <img className="input__icon" src="/icons/searchglass.svg" alt="searchglass icon" />
-                            </Input>
-                        </div>
                         <div className="file-gallery__files-main">
+                            <div className="file-gallery__file-filters">
+                                <Input type="text" placeholder="Zoeken naar files">
+                                    <img className="input__icon" src="/icons/searchglass.svg" alt="searchglass icon" />
+                                </Input>
+                            </div>
                             <ul className="file-gallery__file-list">
-                                {uploads &&
-                                    uploads.map((upload, index) => (
-                                        <li key={index} className="file-gallery__file">
-                                            <img src={`http://localhost:3000/api/files/${upload}`} alt="uploaded file" />
+                                {files &&
+                                    files.map((file, index) => (
+                                        <li key={index} className="file-gallery__file" onClick={() => showFileInfo(file)}>
+                                            <img src={`http://localhost:3000/api/files/${file.filename}`} alt="uploaded file" />
                                         </li>
                                     ))}
                             </ul>
-                            {fileInfo && <FileInfo />}
                         </div>
+                        {fileInfo && <FileInfo fileInfo={fileInfo} setFileInfo={setFileInfo} />}
                     </section>
                 )}
                 {activeTab === "Upload new files" && <FileUpload setActiveTab={setActiveTab} />}

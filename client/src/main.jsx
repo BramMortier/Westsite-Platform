@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
-import { AuthProvider } from "./context/AuthContextProvider.jsx";
-import { UserProvider } from "./context/UserContextProvider.jsx";
+import { AuthProvider } from "@context/AuthContextProvider.jsx";
+import { UserProvider } from "@context/UserContextProvider.jsx";
 import App from "./App.jsx";
 
 import "./sass/breakpoints.scss";

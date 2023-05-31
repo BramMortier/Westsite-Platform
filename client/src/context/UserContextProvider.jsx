@@ -3,7 +3,7 @@ import axios from "@config/axios";
 
 export const UserContext = createContext();
 
-export const userReducer = (state, action) => {
+const userReducer = (state, action) => {
     switch (action.type) {
         case "SET_USERS":
             return {
@@ -41,11 +41,16 @@ export const UserProvider = ({ children }) => {
         dispatch({ type: "DELETE_USER", data: userId });
     };
 
-    useEffect(() => {
-        const fetchUsers = async () => {
+    const fetchUsers = async () => {
+        try {
             const response = await axios.get("/users");
             setUsers(response.data.users);
-        };
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    useEffect(() => {
         fetchUsers();
     }, []);
 
