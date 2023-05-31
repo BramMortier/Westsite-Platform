@@ -219,10 +219,12 @@ const AddUserForm = ({ setCreateUserMenuOpen }) => {
                     </div>
                 </div>
             </fieldset>
-            <Button type="primary">
-                <img src="/icons/plus-dark.svg" alt="plus icon" />
-                Toevoegen
-            </Button>
+            <div className="add-user-form__submit">
+                <Button type="primary">
+                    <img src="/icons/plus-dark.svg" alt="plus icon" />
+                    Toevoegen
+                </Button>
+            </div>
         </form>
     );
 };

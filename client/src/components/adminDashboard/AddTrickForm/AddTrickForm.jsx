@@ -1,9 +1,10 @@
 import { useState, useRef } from "react";
-import { Input, FileUpload, Textarea, Button, DropdownMenu, ErrorMessages } from "@components";
+import { Input, FileGallery, PopupMenu, Textarea, Button, DropdownMenu, ErrorMessages } from "@components";
+import { FileProvider } from "@context/FileContextProvider";
 import validateForm from "@config/validation/validateForm";
 import "./addTrickForm.scss";
 
-const AddTrickForm = ({ setFileGalleryMenuOpen }) => {
+const AddTrickForm = () => {
     const trickFormInitialState = {
         name: "",
         description: "",
@@ -14,6 +15,7 @@ const AddTrickForm = ({ setFileGalleryMenuOpen }) => {
         matchingTricks: [],
     };
 
+    const [fileGalleryMenuOpen, setFileGalleryMenuOpen] = useState(false);
     const [trickFormData, setTrickFormData] = useState(trickFormInitialState);
     const [trickFormErrors, setTrickFormErrors] = useState({});
     const [trickFormMessage, setTrickFormMessage] = useState(null);
@@ -24,6 +26,13 @@ const AddTrickForm = ({ setFileGalleryMenuOpen }) => {
 
     const handleTrickTagsChange = (selectedOption, name) => {
         setTrickFormData({ ...trickFormData, [name]: selectedOption });
+    };
+
+    const handleTrickThumbnailChange = (file) => {
+        const { filename } = file;
+
+        setTrickFormData({ ...trickFormData, thumbnail: filename });
+        setFileGalleryMenuOpen(false);
     };
 
     const handleTrickFormChange = (e) => {
@@ -86,11 +95,21 @@ const AddTrickForm = ({ setFileGalleryMenuOpen }) => {
                 <div className="add-trick-form__row">
                     <div className="add-trick-form__group">
                         <label htmlFor="">Foto</label>
+                        {trickFormData.thumbnail && (
+                            <div className="add-trick-form__trick-thumbnail">
+                                <img src={`http://localhost:3000/api/files/${trickFormData.thumbnail}`} alt="trick thumbnail" />
+                            </div>
+                        )}
                         <Button type="primary" onClick={() => setFileGalleryMenuOpen(true)}>
                             Kies een bestand
                             <img src="/icons/upload-dark.svg" alt="upload icon" />
                         </Button>
                     </div>
+                    <FileProvider>
+                        <PopupMenu title="Bestand galerij" open={fileGalleryMenuOpen} setOpen={setFileGalleryMenuOpen}>
+                            <FileGallery onFileChange={handleTrickThumbnailChange} />
+                        </PopupMenu>
+                    </FileProvider>
                 </div>
             </fieldset>
             <fieldset>
@@ -140,6 +159,12 @@ const AddTrickForm = ({ setFileGalleryMenuOpen }) => {
                     </div>
                 </div>
             </fieldset>
+            <div className="add-trick-form__submit">
+                <Button type="primary">
+                    <img src="/icons/plus-dark.svg" alt="plus icon" />
+                    Toevoegen
+                </Button>
+            </div>
         </form>
     );
 };

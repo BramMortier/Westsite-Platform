@@ -55,6 +55,12 @@
         color: var(--black);
     }
 
+    &__trick-thumbnail img {
+        width: 500px;
+        border-radius: 5px;
+        object-fit: cover;
+    }
+
     &__comparable-tricks-list {
         display: flex;
         flex-wrap: wrap;
@@ -67,5 +73,11 @@
         color: var(--lime-green-900);
         border-radius: 5px;
         font-family: var(--font);
+    }
+
+    &__submit {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
     }
 }

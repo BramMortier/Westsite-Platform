@@ -3,7 +3,7 @@ import { Button } from "@components";
 import { useFileContext } from "@hooks/useFileContext";
 import "./fileInfo.scss";
 
-const FileInfo = ({ fileInfo, setFileInfo }) => {
+const FileInfo = ({ fileInfo, setFileInfo, onFileChange }) => {
     const { deleteFile } = useFileContext();
 
     return (
@@ -24,7 +24,9 @@ const FileInfo = ({ fileInfo, setFileInfo }) => {
                 </p>
             </div>
             <div className="file-info__action-buttons">
-                <Button type="primary">Bestand kiezen</Button>
+                <Button type="primary" onClick={() => onFileChange(fileInfo)}>
+                    Bestand kiezen
+                </Button>
                 <Button
                     type="secondary"
                     onClick={() => {

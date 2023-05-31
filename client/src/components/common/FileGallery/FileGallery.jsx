@@ -6,7 +6,7 @@ import "./fileGallery.scss";
 // TODO check deze file nog ma ke op afwerkingsfouten want twas laat
 // TODO rebuilt the filegallery layout so that the filters and file list are one column and the file info is one column
 
-const FileGallery = () => {
+const FileGallery = ({ onFileChange }) => {
     const { files } = useFileContext();
 
     const [activeTab, setActiveTab] = useState("Files");
@@ -54,7 +54,7 @@ const FileGallery = () => {
                                     ))}
                             </ul>
                         </div>
-                        {fileInfo && <FileInfo fileInfo={fileInfo} setFileInfo={setFileInfo} />}
+                        {fileInfo && <FileInfo onFileChange={onFileChange} fileInfo={fileInfo} setFileInfo={setFileInfo} />}
                     </section>
                 )}
                 {activeTab === "Upload new files" && <FileUpload setActiveTab={setActiveTab} />}

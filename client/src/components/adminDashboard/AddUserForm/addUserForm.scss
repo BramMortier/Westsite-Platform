@@ -91,4 +91,10 @@
             border-bottom-right-radius: 5px;
         }
     }
+
+    &__submit {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
 }
