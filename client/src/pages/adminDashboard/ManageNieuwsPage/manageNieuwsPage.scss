@@ -1,5 +1,11 @@
 .manage-nieuws-page {
     &__main {
         grid-area: main;
+        display: grid;
+        grid-gap: var(--space-xl);
+        grid-template-columns: 1fr 400px;
+        max-width: 1600px;
+        width: 100%;
+        padding: var(--space-2xl) var(--space-2xl) 0;
     }
 }

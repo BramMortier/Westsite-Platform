@@ -1,11 +1,8 @@
 .nieuws-post-actions {
-    max-width: 1000px;
-    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: var(--space-2xl) var(--space-xl) var(--space-sm);
-
+    margin-bottom: var(--space-sm);
     &__title h3 {
         font-size: var(--fs-xl);
         font-weight: var(--fw-regular);

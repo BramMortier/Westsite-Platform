@@ -1,5 +1,5 @@
 import React from "react";
-import { NieuwsPostActions, NieuwsPostList } from "@components";
+import { NieuwsPostActions, NieuwsPostList, NieuwsPostFilters } from "@components";
 import "./manageNieuwsPage.scss";
 
 const ManageNieuwsPage = () => {
@@ -10,7 +10,9 @@ const ManageNieuwsPage = () => {
                     <NieuwsPostActions />
                     <NieuwsPostList />
                 </div>
-                <div className="manage-nieuws-page__section"></div>
+                <div className="manage-nieuws-page__section">
+                    <NieuwsPostFilters />
+                </div>
             </main>
         </React.Fragment>
     );

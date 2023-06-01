@@ -7,6 +7,7 @@ export { default as Textarea } from "./common/Textarea/Textarea";
 export { default as ErrorMessages } from "./common/ErrorMessages/ErrorMessages";
 export { default as Pagination } from "./common/Pagination/Pagination";
 export { default as DropdownMenu } from "./common/DropdownMenu/DropdownMenu";
+export { default as Checkbox } from "./common/Checkbox/Checkbox";
 
 export { default as Hero } from "./userPortal/Hero/Hero";
 export { default as Expectations } from "./userPortal/Expectations/Expectations";
@@ -35,6 +36,7 @@ export { default as TrickCard } from "./adminDashboard/TrickCard/TrickCard";
 
 export { default as NieuwsPostActions } from "./adminDashboard/NieuwsPostActions/NieuwsPostActions";
 export { default as NieuwsPostList } from "./adminDashboard/NieuwsPostList/NieuwsPostList";
+export { default as NieuwsPostFilters } from "./adminDashboard/NieuwsPostFilters/NieuwsPostFilters";
 
 export { default as DefaultLayout } from "./layout/DefaultLayout/DefaultLayout";
 export { default as DashboardLayout } from "./layout/DashboardLayout/DashboardLayout";
