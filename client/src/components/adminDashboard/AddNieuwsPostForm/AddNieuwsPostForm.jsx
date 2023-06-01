@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { nieuwsPostLabels } from "@config/dropdownMenus";
 import { Input, DropdownMenu, Button, Textarea } from "@components";
+import axios from "@config/axios";
 import "./addNieuwsPostForm.scss";
 
 const AddNieuwsPostForm = () => {
@@ -27,15 +28,19 @@ const AddNieuwsPostForm = () => {
         });
     };
 
-    const handleNieuwsPostFormSubmit = async () => {
+    const handleNieuwsPostFormSubmit = async (e) => {
         e.preventDefault();
 
         try {
-        } catch (error) {}
+            const response = await axios.post("/newsposts", nieuwsPostFormData);
+            console.log(response);
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     return (
-        <form className="add-nieuws-post-form" onSubmit={handleNieuwsPostFormSubmit}>
+        <form className="add-nieuws-post-form" noValidate onSubmit={handleNieuwsPostFormSubmit}>
             <fieldset>
                 <legend>Basis Informatie</legend>
                 <div className="add-nieuws-post-form__row">

@@ -28,7 +28,10 @@ const createTrick = async (req, res) => {
         trick.save();
 
         res.status(201).json({ status: "OK", message: "Trick created succesfully", trick: trick });
-    } catch (error) {}
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ status: "ERROR", message: "Internal server error" });
+    }
 };
 
 const deleteTrick = async (req, res) => {};

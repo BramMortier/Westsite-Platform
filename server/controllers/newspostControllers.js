@@ -1,10 +1,27 @@
 const newsPostServices = require("../services/newspostServices");
+const Newspost = require("../models/newspostModel");
 
 const getAllNewsposts = async (req, res) => {};
 
 const getOneNewspost = async (req, res) => {};
 
-const createNewspost = async (req, res) => {};
+const createNewspost = async (req, res) => {
+    const { title, description, label } = req.body;
+    try {
+        const newspost = new Newspost({
+            title,
+            description,
+            label,
+        });
+
+        newspost.save();
+
+        res.status(201).json({ status: "OK", message: "Newspost created succesfully" });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ status: "ERROR", message: "Internal server error" });
+    }
+};
 
 const deleteNewspost = async (req, res) => {};
 
