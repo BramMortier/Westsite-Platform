@@ -1,7 +1,10 @@
 const newsPostServices = require("../services/newspostServices");
 const Newspost = require("../models/newspostModel");
 
-const getAllNewsposts = async (req, res) => {};
+const getAllNewsposts = async (req, res) => {
+    const newsposts = await Newspost.find();
+    res.status(200).json({ status: "OK", newsposts: newsposts });
+};
 
 const getOneNewspost = async (req, res) => {};
 

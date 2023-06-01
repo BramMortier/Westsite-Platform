@@ -39,6 +39,8 @@ const AddNieuwsPostForm = () => {
         }
     };
 
+    console.log(nieuwsPostFormData);
+
     return (
         <form className="add-nieuws-post-form" noValidate onSubmit={handleNieuwsPostFormSubmit}>
             <fieldset>

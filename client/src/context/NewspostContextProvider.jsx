@@ -7,7 +7,7 @@ const newspostReducer = (state, action) => {
     switch (action.type) {
         case "SET_NEWSPOSTS":
             return {
-                tricks: action.data,
+                newsposts: action.data,
             };
     }
 };

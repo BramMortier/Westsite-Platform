@@ -1,51 +1,23 @@
+import { useNewspostContext } from "@hooks/useNewspostContext";
+import { timestampToDate } from "@config/helpers/dateFormatting";
 import "./nieuwsPostList.scss";
 
 const NieuwsPostList = () => {
+    const { newsposts } = useNewspostContext();
+
     return (
         <section className="nieuws-post-list">
             <ul className="nieuws-post-list__posts">
-                <li className="nieuws-post-list__post">
-                    <div className="nieuws-post-list__post-label">aankondiging</div>
-                    <div className="nieuws-post-list__post-content">
-                        <p>Welkom op onze nieuwe website!</p>
-                        <p>6 mei, 2023</p>
-                    </div>
-                </li>
-                <li className="nieuws-post-list__post">
-                    <div className="nieuws-post-list__post-label">aankondiging</div>
-                    <div className="nieuws-post-list__post-content">
-                        <p>Welkom op onze nieuwe website!</p>
-                        <p>6 mei, 2023</p>
-                    </div>
-                </li>
-                <li className="nieuws-post-list__post">
-                    <div className="nieuws-post-list__post-label">aankondiging</div>
-                    <div className="nieuws-post-list__post-content">
-                        <p>Welkom op onze nieuwe website!</p>
-                        <p>6 mei, 2023</p>
-                    </div>
-                </li>
-                <li className="nieuws-post-list__post">
-                    <div className="nieuws-post-list__post-label">aankondiging</div>
-                    <div className="nieuws-post-list__post-content">
-                        <p>Welkom op onze nieuwe website!</p>
-                        <p>6 mei, 2023</p>
-                    </div>
-                </li>
-                <li className="nieuws-post-list__post">
-                    <div className="nieuws-post-list__post-label">aankondiging</div>
-                    <div className="nieuws-post-list__post-content">
-                        <p>Welkom op onze nieuwe website!</p>
-                        <p>6 mei, 2023</p>
-                    </div>
-                </li>
-                <li className="nieuws-post-list__post">
-                    <div className="nieuws-post-list__post-label">aankondiging</div>
-                    <div className="nieuws-post-list__post-content">
-                        <p>Welkom op onze nieuwe website!</p>
-                        <p>6 mei, 2023</p>
-                    </div>
-                </li>
+                {newsposts &&
+                    newsposts.map((newspost) => (
+                        <li key={newspost._id} className="nieuws-post-list__post">
+                            <div className="nieuws-post-list__post-label">{newspost.label}</div>
+                            <div className="nieuws-post-list__post-content">
+                                <p>{newspost.description.substring(0, 150)}</p>
+                                <p>{timestampToDate(newspost.createdAt)}</p>
+                            </div>
+                        </li>
+                    ))}
             </ul>
         </section>
     );

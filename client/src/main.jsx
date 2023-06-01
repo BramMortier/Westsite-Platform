@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "@context/AuthContextProvider.jsx";
 import { UserProvider } from "@context/UserContextProvider.jsx";
 import { TrickProvider } from "@context/TrickContextProvider.jsx";
+import { NewspostProvider } from "@context/NewspostContextProvider.jsx";
 import App from "./App.jsx";
 
 import "./sass/breakpoints.scss";
@@ -19,7 +20,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             <AuthProvider>
                 <UserProvider>
                     <TrickProvider>
-                        <App />
+                        <NewspostProvider>
+                            <App />
+                        </NewspostProvider>
                     </TrickProvider>
                 </UserProvider>
             </AuthProvider>

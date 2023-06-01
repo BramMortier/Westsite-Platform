@@ -13,6 +13,20 @@
         align-items: center;
         gap: var(--space-2xs);
         width: 100%;
+        transition: all ease 0.2s;
+
+        &:hover {
+            cursor: pointer;
+            transform: translateX(12px);
+
+            .nieuws-post-list__post-label {
+                background-color: var(--lime-green-600);
+            }
+
+            .nieuws-post-list__post-content {
+                background-color: var(--gray-100);
+            }
+        }
     }
 
     &__post-label,
@@ -23,10 +37,18 @@
         background-color: var(--gray-200);
         border-radius: 5px;
         padding-inline: var(--space-xl);
+        transition: all ease 0.2s;
+    }
+
+    &__post-label {
+        width: 200px;
+        background-color: var(--lime-green-500);
+        color: var(--lime-green-900);
+        font-weight: var(--fw-semi-bold);
     }
 
     &__post-content {
-        background-color: var(--gray-100);
+        background-color: var(--off-white);
         border: 1px solid var(--gray-300);
         justify-content: space-between;
         width: 100%;
