@@ -33,5 +33,8 @@ export { default as TrickStatistics } from "./adminDashboard/TrickStatistics/Tri
 export { default as AddTrickForm } from "./adminDashboard/AddTrickForm/AddTrickForm";
 export { default as TrickCard } from "./adminDashboard/TrickCard/TrickCard";
 
+export { default as NieuwsPostActions } from "./adminDashboard/NieuwsPostActions/NieuwsPostActions";
+export { default as NieuwsPostList } from "./adminDashboard/NieuwsPostList/NieuwsPostList";
+
 export { default as DefaultLayout } from "./layout/DefaultLayout/DefaultLayout";
 export { default as DashboardLayout } from "./layout/DashboardLayout/DashboardLayout";

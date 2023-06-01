@@ -1,5 +1,5 @@
-import "./trickActions.scss";
 import { Button } from "@components";
+import "./trickActions.scss";
 
 const TrickActions = ({ setCreateTrickMenuOpen }) => {
     return (

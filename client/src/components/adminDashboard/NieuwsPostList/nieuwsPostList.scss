@@ -1,0 +1,9 @@
+.nieuws-post-list {
+    max-width: 1000px;
+    width: 100%;
+    display: flex;
+    padding-inline: var(--space-xl);
+
+    &__posts {
+    }
+}
