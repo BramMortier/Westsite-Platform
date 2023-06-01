@@ -2,7 +2,8 @@ const trickServices = require("../services/trickServices");
 const Trick = require("../models/trickModel");
 
 const getAllTricks = async (req, res) => {
-    res.status(200).json({ status: "OK", message: "getting all tricks..." });
+    const tricks = await Trick.find();
+    res.status(200).json({ status: "OK", tricks: tricks });
 };
 
 const getOneTrick = async (req, res) => {};
@@ -26,7 +27,7 @@ const createTrick = async (req, res) => {
 
         trick.save();
 
-        res.status(201).json({ status: "OK", message: "Trick created succesfully" });
+        res.status(201).json({ status: "OK", message: "Trick created succesfully", trick: trick });
     } catch (error) {}
 };
 

@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "@context/AuthContextProvider.jsx";
 import { UserProvider } from "@context/UserContextProvider.jsx";
+import { TrickProvider } from "@context/TrickContextProvider.jsx";
 import App from "./App.jsx";
 
 import "./sass/breakpoints.scss";
@@ -17,7 +18,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <BrowserRouter>
             <AuthProvider>
                 <UserProvider>
-                    <App />
+                    <TrickProvider>
+                        <App />
+                    </TrickProvider>
                 </UserProvider>
             </AuthProvider>
         </BrowserRouter>

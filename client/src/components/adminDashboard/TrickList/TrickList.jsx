@@ -1,16 +1,11 @@
-import "./trickList.scss";
 import { TrickCard } from "@components";
+import { useTrickContext } from "@hooks/useTrickContext";
+import "./trickList.scss";
 
 const TrickList = () => {
-    return (
-        <section className="trick-list">
-            <TrickCard />
-            <TrickCard />
-            <TrickCard />
-            <TrickCard />
-            <TrickCard />
-        </section>
-    );
+    const { tricks } = useTrickContext();
+
+    return <section className="trick-list">{tricks && tricks.map((trick) => <TrickCard key={trick._id} trick={trick} />)}</section>;
 };
 
 export default TrickList;

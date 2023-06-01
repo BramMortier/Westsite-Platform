@@ -2,11 +2,18 @@ import { useState, useRef } from "react";
 import { Input, FileGallery, PopupMenu, Textarea, Button, DropdownMenu, ErrorMessages } from "@components";
 import { difficultyOptions, typeOptions, variantOptions } from "@config/dropdownMenus";
 import { FileProvider } from "@context/FileContextProvider";
+import { useTrickContext } from "@hooks/useTrickContext";
 import validateForm from "@config/validation/validateForm";
 import axios from "@config/axios";
 import "./addTrickForm.scss";
 
-const AddTrickForm = () => {
+// TODO add error handling and displaying
+
+const AddTrickForm = ({ setCreateTrickMenuOpen }) => {
+    const { createTrick } = useTrickContext();
+
+    const topRef = useRef();
+
     const trickFormInitialState = {
         name: "",
         description: "",
@@ -45,11 +52,13 @@ const AddTrickForm = () => {
     const handleTrickFormSubmit = async (e) => {
         e.preventDefault();
 
-        try {
-            const response = await axios.post("/tricks", trickFormData);
-            console.log(response);
-        } catch (error) {
-            console.log(error);
+        const response = await createTrick(trickFormData);
+
+        if (response.status === "OK") {
+            setTimeout(() => {
+                setCreateTrickMenuOpen(false);
+                setTrickFormData(trickFormInitialState);
+            }, 1000);
         }
     };
 

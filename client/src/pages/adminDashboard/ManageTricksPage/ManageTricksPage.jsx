@@ -8,7 +8,7 @@ const ManageTricksPage = () => {
     return (
         <React.Fragment>
             <SlidingMenu title="Nieuwe Trick Toevoegen" open={createTrickMenuOpen} setOpen={setCreateTrickMenuOpen}>
-                <AddTrickForm />
+                <AddTrickForm setCreateTrickMenuOpen={setCreateTrickMenuOpen} />
             </SlidingMenu>
             <aside className="manage-tricks-page__sidebar">
                 <TrickFilters />

@@ -1,25 +1,24 @@
 import "./trickCard.scss";
 
-const TrickCard = () => {
+const TrickCard = ({ trick }) => {
     return (
         <div className="trick-card">
-            <div className="trick-card__thumbnail"></div>
-            <h3 className="trick-card__name">Heelside frontside 360</h3>
+            <div className="trick-card__thumbnail">
+                <img src={`http://localhost:3000/api/files/${trick.thumbnail}`} alt="trick thumbnail" />
+            </div>
+            <h3 className="trick-card__name">{trick.name}</h3>
             <ul className="trick-card__attributes">
                 <li className="trick-card__attribute">
-                    <p className="trick-card__tag">basic</p>
+                    <p className="trick-card__tag">{trick.difficulty}</p>
                 </li>
                 <li className="trick-card__attribute">
-                    <p className="trick-card__tag">kicker</p>
+                    <p className="trick-card__tag">{trick.type}</p>
                 </li>
                 <li className="trick-card__attribute">
-                    <p className="trick-card__tag">spin</p>
+                    <p className="trick-card__tag">{trick.variant}</p>
                 </li>
             </ul>
-            <p className="trick-card__description">
-                Deze trick is de basis van enorm veel tricks in wakeboarden. Het is de eerste trick waarbij je je hendel zult moeten doorgeven. Daarom
-                is het belangrijk dat je zeer comfortabel bent met het nemen van de kicker.
-            </p>
+            <p className="trick-card__description">{trick.description.substring(0, 200)}</p>
         </div>
     );
 };
