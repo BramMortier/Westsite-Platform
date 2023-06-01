@@ -1,0 +1,37 @@
+.training-participants {
+    h4 {
+        margin-bottom: var(--space-sm);
+        color: var(--black);
+        font-weight: var(--fw-regular);
+        font-size: var(--fs-lg);
+    }
+
+    &__overview {
+        display: flex;
+        gap: var(--space-lg);
+        margin-bottom: var(--space-3xl);
+    }
+
+    &__present-trainers,
+    &__present-members {
+        background-color: var(--off-white);
+        box-shadow: 0px 8px 8px var(--drop-shadow);
+        border-radius: 5px;
+        padding: var(--space-lg);
+        width: 300px;
+
+        h5 {
+            font-weight: var(--fw-semi-bold);
+            font-size: var(--fs-md);
+            color: var(--black);
+            margin-bottom: var(--space-xs);
+        }
+    }
+
+    &__present-members-list,
+    &__present-trainers-list {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-xs);
+    }
+}

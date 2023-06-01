@@ -1,0 +1,48 @@
+.training-calendar {
+    &__training-sessions {
+        display: flex;
+        align-items: center;
+        gap: var(--space-xs);
+        width: 0;
+        min-width: 100%;
+        overflow-x: auto;
+        margin-bottom: var(--space-sm);
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    &__period-selection {
+        display: flex;
+        align-items: center;
+        margin-bottom: var(--space-xl);
+    }
+
+    &__period-option {
+        padding: var(--space-sm) var(--space-2xl);
+        background-color: var(--gray-100);
+        transition: all ease 0.3s;
+
+        &:hover {
+            cursor: pointer;
+            background-color: var(--gray-200);
+        }
+
+        &--active {
+            background-color: var(--gray-200);
+            border: 1px solid var(--gray-500);
+            color: var(--black);
+        }
+
+        &:first-child {
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+
+        &:last-child {
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+    }
+}

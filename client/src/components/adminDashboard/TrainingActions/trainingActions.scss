@@ -1,0 +1,17 @@
+.training-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-sm);
+
+    &__title h3 {
+        font-size: var(--fs-xl);
+        font-weight: var(--fw-regular);
+        color: var(--black);
+    }
+
+    &__total-amount {
+        font-weight: var(--fw-semi-bold);
+        color: var(--lime-green-500);
+    }
+}

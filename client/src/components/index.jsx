@@ -39,5 +39,10 @@ export { default as NieuwsPostList } from "./adminDashboard/NieuwsPostList/Nieuw
 export { default as NieuwsPostFilters } from "./adminDashboard/NieuwsPostFilters/NieuwsPostFilters";
 export { default as AddNieuwsPostForm } from "./adminDashboard/AddNieuwsPostForm/AddNieuwsPostForm";
 
+export { default as TrainingActions } from "./adminDashboard/TrainingActions/TrainingActions";
+export { default as TrainingCalendar } from "./adminDashboard/TrainingCalendar/TrainingCalendar";
+export { default as TrainingParticipants } from "./adminDashboard/TrainingParticipants/TrainingParticipants";
+export { default as TrainingCard } from "./adminDashboard/TrainingCard/TrainingCard";
+
 export { default as DefaultLayout } from "./layout/DefaultLayout/DefaultLayout";
 export { default as DashboardLayout } from "./layout/DashboardLayout/DashboardLayout";
