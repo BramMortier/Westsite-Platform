@@ -1,12 +1,9 @@
-import { useState } from "react";
 import { Input, Checkbox } from "@components";
 import "./nieuwsPostFilters.scss";
 
 const nieuwsPostLabels = ["Aankondigingen", "Giveaway's", "Evenementen", "Annulaties", "Updates"];
 
 const NieuwsPostFilters = () => {
-    const [labelFilters, setLabelFilters] = useState({});
-
     return (
         <section className="nieuws-post-filters">
             <div className="nieuws-post-filters__labels">
@@ -23,8 +20,8 @@ const NieuwsPostFilters = () => {
             </div>
             <div className="nieuws-post-filters__search">
                 <h4>Zoeken</h4>
-                <Input placeholder="Nieuwsberichten zoeken">
-                    <img className="input__icon" src="/icons/searchglass.svg" alt="searchglass icon" />
+                <Input darkmode={true} placeholder="Nieuwsberichten zoeken">
+                    <img className="input__icon" src="/icons/searchglass-dark.svg" alt="searchglass icon" />
                 </Input>
             </div>
         </section>

@@ -38,4 +38,21 @@
             }
         }
     }
+
+    &--darkmode {
+        background-color: var(--gray-800);
+        border: 1px solid var(--gray-500);
+
+        &:hover {
+            background-color: var(--gray-700);
+        }
+
+        input {
+            color: var(--gray-200);
+
+            &::placeholder {
+                color: var(--gray-300);
+            }
+        }
+    }
 }
