@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import { Input, FileGallery, PopupMenu, Textarea, Button, DropdownMenu, ErrorMessages } from "@components";
+import { difficultyOptions, typeOptions, variantOptions } from "@config/dropdownMenus";
 import { FileProvider } from "@context/FileContextProvider";
 import validateForm from "@config/validation/validateForm";
 import axios from "@config/axios";
@@ -20,10 +21,6 @@ const AddTrickForm = () => {
     const [trickFormData, setTrickFormData] = useState(trickFormInitialState);
     const [trickFormErrors, setTrickFormErrors] = useState({});
     const [trickFormMessage, setTrickFormMessage] = useState(null);
-
-    const difficultyOptions = ["all", "beginner", "basic", "intermediate", "hard", "pro", "crazy"];
-    const typeOptions = ["all", "kicker", "obstacle", "airtrick"];
-    const variantOptions = ["all", "spin", "flip", "press", "transfer"];
 
     const handleTrickTagsChange = (selectedOption, name) => {
         setTrickFormData({ ...trickFormData, [name]: selectedOption });
@@ -48,11 +45,8 @@ const AddTrickForm = () => {
     const handleTrickFormSubmit = async (e) => {
         e.preventDefault();
 
-        console.log("hello");
-
         try {
             const response = await axios.post("/tricks", trickFormData);
-            console.log("trying");
             console.log(response);
         } catch (error) {
             console.log(error);

@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 import { Input, DropdownMenu } from "@components";
+import { difficultyOptions, typeOptions, variantOptions } from "@config/dropdownMenus";
 import "./trickFilters.scss";
 
 const TrickFilters = () => {
     const [trickFiltersMenuOpen, setTrickFiltersMenuOpen] = useState(false);
-
-    const difficultyOptions = ["all", "beginner", "basic", "intermediate", "hard", "pro", "crazy"];
-    const typeOptions = ["all", "kicker", "obstacle", "airtrick"];
-    const variantOptions = ["all", "spin", "flip", "press", "transfer"];
 
     return (
         <section className={`trick-filters ${trickFiltersMenuOpen ? "trick-filters--active" : ""}`}>

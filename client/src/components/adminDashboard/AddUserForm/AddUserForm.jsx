@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import { Input, Button, DropdownMenu, ErrorMessages } from "@components";
+import { cableParks } from "../../../config/dropdownMenus";
 import validateForm from "@config/validation/validateForm";
 import { userFormValidationSchema } from "@config/validation/formSchemas";
 import { useUserContext } from "@hooks/useUserContext";
@@ -27,17 +28,6 @@ const AddUserForm = ({ setCreateUserMenuOpen }) => {
     const [userFormData, setUserFormData] = useState(userFormInitialState);
     const [userFormErrors, setUserFormErrors] = useState({});
     const [userFormMessage, setUserFormMessage] = useState(null);
-
-    const cableParks = [
-        "Outsider Cablepark",
-        "Lakeside Paradise",
-        "Terhills Cablepark",
-        "Goodlife Cablepark",
-        "BCP",
-        "The Spin",
-        "Wake Up Cable Antwerpen",
-        "Wakepark Gent",
-    ];
 
     // TODO make the dropdown menu update the state with the name prop instead of writing a seperate handleHomeCableChange function
 
