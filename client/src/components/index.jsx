@@ -37,6 +37,7 @@ export { default as TrickCard } from "./adminDashboard/TrickCard/TrickCard";
 export { default as NieuwsPostActions } from "./adminDashboard/NieuwsPostActions/NieuwsPostActions";
 export { default as NieuwsPostList } from "./adminDashboard/NieuwsPostList/NieuwsPostList";
 export { default as NieuwsPostFilters } from "./adminDashboard/NieuwsPostFilters/NieuwsPostFilters";
+export { default as AddNieuwsPostForm } from "./adminDashboard/AddNieuwsPostForm/AddNieuwsPostForm";
 
 export { default as DefaultLayout } from "./layout/DefaultLayout/DefaultLayout";
 export { default as DashboardLayout } from "./layout/DashboardLayout/DashboardLayout";

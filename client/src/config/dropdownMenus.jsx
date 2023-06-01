@@ -2,6 +2,8 @@ export const difficultyOptions = ["alle", "beginner", "basic", "intermediate", "
 export const typeOptions = ["alle", "kicker", "obstacle", "airtrick", "surface"];
 export const variantOptions = ["alle", "spin", "flip", "press", "transfer"];
 
+export const nieuwsPostLabels = ["Aankondiging", "Giveaway", "Evenement", "Annulatie", "Update"];
+
 export const cableParks = [
     "Outsider Cablepark",
     "Lakeside Paradise",

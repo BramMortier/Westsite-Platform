@@ -1,7 +1,7 @@
 import { Button } from "@components";
 import "./nieuwsPostActions.scss";
 
-const NieuwsPostActions = () => {
+const NieuwsPostActions = ({ setCreateNieuwsPostMenuOpen }) => {
     return (
         <section className="nieuws-post-actions">
             <div className="nieuws-post-actions__title">
@@ -10,7 +10,7 @@ const NieuwsPostActions = () => {
                 </h3>
             </div>
             <div className="nieuws-post-actions__btns">
-                <Button type="primary">
+                <Button type="primary" onClick={() => setCreateNieuwsPostMenuOpen(true)}>
                     Nieuw bericht opstellen
                     <img src="/icons/plus-dark.svg" alt="plus icon" />
                 </Button>

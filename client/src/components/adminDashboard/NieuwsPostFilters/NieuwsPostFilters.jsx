@@ -1,7 +1,6 @@
 import { Input, Checkbox } from "@components";
+import { nieuwsPostLabels } from "@config/dropdownMenus";
 import "./nieuwsPostFilters.scss";
-
-const nieuwsPostLabels = ["Aankondigingen", "Giveaway's", "Evenementen", "Annulaties", "Updates"];
 
 const NieuwsPostFilters = () => {
     return (
