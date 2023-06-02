@@ -17,8 +17,6 @@ const TricksCompletion = () => {
         return accumulator;
     }, {});
 
-    console.log(tricks);
-
     return (
         <section className="tricks-completion">
             <div className="tricks-completion__filters">
