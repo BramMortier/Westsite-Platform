@@ -12,6 +12,8 @@ export { default as Checkbox } from "./common/Checkbox/Checkbox";
 export { default as Hero } from "./userPortal/Hero/Hero";
 export { default as TrickList } from "./userPortal/TrickList/TrickList";
 export { default as TrickCardV2 } from "./userPortal/TrickCardV2/TrickCardV2";
+export { default as TrickInfo } from "./userPortal/TrickInfo/TrickInfo";
+export { default as MatchingTricks } from "./userPortal/MatchingTricks/MatchingTricks";
 export { default as TrainingCardV2 } from "./userPortal/TrainingCardV2/TrainingCardV2";
 export { default as TrainingOverview } from "./userPortal/TrainingOverview/TrainingOverview";
 export { default as TricksCompletion } from "./userPortal/TricksCompletion/TricksCompletion";

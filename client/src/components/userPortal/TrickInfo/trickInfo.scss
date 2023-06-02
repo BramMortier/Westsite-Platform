@@ -1,0 +1,102 @@
+.trick-info {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    padding: calc(118px + var(--space-xl)) var(--space-2xl) 0;
+
+    &__action-buttons {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: var(--space-lg);
+    }
+
+    &__thumbnail {
+        position: relative;
+        height: 400px;
+        margin-bottom: var(--space-sm);
+
+        img {
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+    }
+    &__attributes {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2xs);
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: var(--space-lg);
+    }
+
+    &__attribute {
+        padding: var(--space-3xs) var(--space-sm);
+        background-color: var(--lime-green-500);
+        border-radius: 5px;
+        width: fit-content;
+        color: var(--lime-green-900);
+        text-transform: uppercase;
+    }
+
+    &__stats {
+        display: flex;
+        gap: var(--space-sm);
+        margin-bottom: var(--space-2xl);
+    }
+
+    &__stat {
+        box-shadow: 0px 4px 8px var(--drop-shadow);
+        background-color: var(--off-white);
+        padding: var(--space-2xs) var(--space-xl);
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        line-height: var(--line-height-md);
+
+        span {
+            font-size: var(--fs-2xl);
+            font-weight: var(--fw-semi-bold);
+            color: var(--lime-green-500);
+        }
+    }
+
+    &__title {
+        display: flex;
+        align-items: center;
+        gap: var(--space-xl);
+        margin-bottom: var(--space-xl);
+
+        h3 {
+            font-size: var(--fs-xl);
+            font-weight: var(--fw-regular);
+            color: var(--black);
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-sm);
+        line-height: var(--line-height-md);
+        margin-bottom: var(--space-2xl);
+
+        h4 {
+            color: var(--black);
+            font-size: var(--fs-md);
+            font-weight: var(--fw-semi-bold);
+        }
+    }
+
+    &__questions {
+        background-color: var(--black);
+        padding: var(--space-sm) var(--space-lg);
+        border-radius: 5px;
+        font-weight: var(--fw-semi-bold);
+        color: var(--lime-green-500);
+        line-height: var(--line-height-md);
+        margin-bottom: var(--space-2xl);
+    }
+}

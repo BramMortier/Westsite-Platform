@@ -1,7 +1,13 @@
+import { TrickInfo, MatchingTricks } from "@components";
 import "./trickInfoPage.scss";
 
 const TrickInfoPage = () => {
-    return <div>TrickInfoPage</div>;
+    return (
+        <main className="trick-info-page__main">
+            <TrickInfo />
+            <MatchingTricks />
+        </main>
+    );
 };
 
 export default TrickInfoPage;

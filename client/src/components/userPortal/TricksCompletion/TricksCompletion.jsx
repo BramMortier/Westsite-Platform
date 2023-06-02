@@ -1,5 +1,6 @@
 import { Input, Checkbox } from "@components";
 import { useTrickContext } from "@hooks/useTrickContext";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import "./tricksCompletion.scss";
 
@@ -41,9 +42,11 @@ const TricksCompletion = () => {
                         </h4>
                         <ul className="tricks-completion__group-list">
                             {tricks.map((trick) => (
-                                <li className="tricks-completion__group-trick" key={trick._id}>
-                                    <p>{trick.name}</p>
-                                </li>
+                                <Link key={trick._id} to={`/trick/${trick._id}`}>
+                                    <li className="tricks-completion__group-trick">
+                                        <p>{trick.name}</p>
+                                    </li>
+                                </Link>
                             ))}
                         </ul>
                     </div>

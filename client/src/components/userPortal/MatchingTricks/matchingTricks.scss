@@ -1,57 +1,30 @@
-.tricks-completion {
-    background-color: var(--off-white);
-    box-shadow: 0px 4px 8px var(--drop-shadow);
-    padding: var(--space-lg);
-    border-radius: 5px;
+.matching-tricks {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    padding-inline: var(--space-2xl);
+    margin-bottom: var(--space-3xl);
 
-    &__filters {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-sm);
-        margin-bottom: var(--space-xl);
-
-        .input {
-            width: 100%;
-            max-width: 100%;
-        }
-    }
-
-    &__filters-results {
-        display: flex;
-        align-items: center;
-        gap: var(--space-lg);
-    }
-
-    &__hide-learned {
-        display: flex;
-        align-items: center;
-        gap: var(--space-xs);
-    }
-
-    &__overview {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-xl);
-    }
-
-    &__trick-group {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-sm);
+    &__content {
+        background-color: var(--off-white);
+        box-shadow: 0px 4px 8px var(--drop-shadow);
+        padding: var(--space-lg);
 
         h4 {
             font-size: var(--fs-md);
             font-weight: var(--fw-semi-bold);
+            color: var(--black);
+            margin-bottom: var(--space-sm);
         }
     }
 
-    &__group-list {
+    &__list {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: var(--space-2xs);
     }
 
-    &__group-trick {
+    &__trick {
         position: relative;
         padding: var(--space-md) var(--space-lg);
         border-radius: 5px;

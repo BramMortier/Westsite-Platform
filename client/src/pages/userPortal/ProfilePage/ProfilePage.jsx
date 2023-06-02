@@ -1,4 +1,4 @@
-import { SectionLabel, ProfileInfo, TricksCompletion } from "@components";
+import { ProfileInfo, TricksCompletion } from "@components";
 import "./profilePage.scss";
 
 const ProfilePage = () => {
