@@ -1,0 +1,76 @@
+.training-card-v2 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 350px;
+    background-color: var(--gray-100);
+
+    &:hover {
+        cursor: pointer;
+
+        .training-card-v2__thumbnail img {
+            transform: scale(1.1);
+            filter: brightness(125%);
+        }
+    }
+
+    &__info {
+        display: flex;
+        justify-content: center;
+        padding: var(--space-xs) var(--space-sm);
+        gap: var(--space-sm);
+        background-color: var(--black);
+        color: var(--off-white);
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+
+    &__info-divider {
+        height: 20px;
+        width: 1px;
+        background-color: var(--off-white);
+    }
+    &__thumbnail {
+        position: relative;
+        height: 100%;
+        overflow: hidden;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, var(--bg-overlay-darker), transparent);
+            mix-blend-mode: multiply;
+        }
+
+        img {
+            height: 100%;
+            object-fit: cover;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            transition: all ease 0.2s;
+        }
+
+        p {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            width: 100%;
+            text-align: center;
+            font-weight: var(--fw-semi-bold);
+            color: var(--off-white);
+            font-size: var(--fs-lg);
+            padding: var(--space-xs) var(--space-sm);
+        }
+    }
+    &__action-buttons {
+        display: none;
+    }
+    &___attendance-menu {
+        display: none;
+    }
+}

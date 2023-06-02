@@ -5,14 +5,16 @@
 
     &__filters-wrapper {
         background-color: var(--black);
-        padding: var(--space-xl) var(--space-2xl) var(--space-4xl);
     }
 
     &__filters {
         display: flex;
         flex-direction: column;
+        padding: var(--space-xl) var(--space-2xl) var(--space-4xl);
         gap: var(--space-sm);
-        max-width: 700px;
+        max-width: 1600px;
+        width: 100%;
+        margin: 0 auto;
 
         .input {
             width: 100%;
@@ -20,10 +22,15 @@
         }
     }
 
+    &__label {
+        margin-bottom: var(--space-lg);
+    }
+
     &__filters-row {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: var(--space-sm);
+        max-width: 700px;
     }
 
     &__filters-group {
@@ -47,10 +54,13 @@
         flex-direction: column;
         gap: var(--space-2xl);
         padding-inline: var(--space-2xl);
+        max-width: 1600px;
+        width: 100%;
+        margin: 0 auto;
     }
 
     &__tricks-list {
-        margin-top: -7rem;
+        margin-top: -6.5rem;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         column-gap: var(--space-sm);

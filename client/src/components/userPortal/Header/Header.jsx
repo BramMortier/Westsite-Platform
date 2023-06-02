@@ -1,11 +1,12 @@
 import { useState } from "react";
 import routes from "@config/routes";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button, PopupMenu, LoginForm } from "@components";
 import { useAuthContext } from "@hooks/useAuthContext";
 import "./header.scss";
 
 const Header = () => {
+    const navigate = useNavigate();
     const { state, logout } = useAuthContext();
 
     const [userMenuOpen, setUserMenuOpen] = useState(false);
@@ -44,21 +45,26 @@ const Header = () => {
                             Welcome Terug <span className="header__user">{state.user.firstname}!</span>
                         </Button>
                         <div className={`header__user-menu-dropdown ${userMenuOpen ? "header__user-menu-dropdown--active" : ""}`}>
-                            <ul className="header__user-menu-options">
+                            <ul
+                                className="header__user-menu-options"
+                                onClick={() => {
+                                    setUserMenuOpen(false);
+                                    navigate(routes.profile);
+                                }}
+                            >
                                 <li className="header__user-menu-option">
                                     <img src="/icons/profile.svg" alt="profile icon" />
                                     <span>Mijn Account</span>
                                 </li>
-                                <li className="header__user-menu-option">
+                                <li
+                                    className="header__user-menu-option"
+                                    onClick={() => {
+                                        setUserMenuOpen(false);
+                                        logout();
+                                    }}
+                                >
                                     <img src="/icons/logout.svg" alt="profile icon" />
-                                    <span
-                                        onClick={() => {
-                                            setUserMenuOpen(false);
-                                            logout();
-                                        }}
-                                    >
-                                        Uitloggen
-                                    </span>
+                                    <span>Uitloggen</span>
                                 </li>
                             </ul>
                         </div>

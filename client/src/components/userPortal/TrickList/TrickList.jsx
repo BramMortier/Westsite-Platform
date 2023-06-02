@@ -4,6 +4,8 @@ import { typeOptions, difficultyOptions, variantOptions } from "@config/dropdown
 import { useTrickContext } from "@hooks/useTrickContext";
 import "./trickList.scss";
 
+// TODO misschien is het een beter idee om de trick cards geen components te maken en ze gewoon vast te hangen aan de list zelf
+
 const TrickList = () => {
     const { tricks } = useTrickContext();
 
@@ -18,7 +20,9 @@ const TrickList = () => {
         <section className="trick-list">
             <div className="trick-list__filters-wrapper">
                 <div className="trick-list__filters">
-                    <SectionLabel name="West Site Trick List" />
+                    <div className="trick-list__label">
+                        <SectionLabel name="West Site Trick List" />
+                    </div>
                     <div className="trick-list__filters-row">
                         <div className="trick-list__filters-group trick-list__filters-group--full-width">
                             <label>Naam</label>

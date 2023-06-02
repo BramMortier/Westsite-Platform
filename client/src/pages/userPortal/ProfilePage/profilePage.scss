@@ -1,0 +1,26 @@
+.profile-page {
+    &__main {
+        position: relative;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 700px;
+            background-color: var(--black);
+            z-index: -1;
+        }
+    }
+
+    &__section {
+        max-width: 1600px;
+        width: 100%;
+        margin: 0 auto;
+        padding: calc(118px + var(--space-xl)) var(--space-2xl) 0;
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        gap: var(--space-sm);
+        margin-bottom: var(--space-3xl);
+    }
+}
