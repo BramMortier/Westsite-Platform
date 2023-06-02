@@ -36,3 +36,8 @@ To run this project start by cloning this repo and installing all the dependenci
 After this is done start the express server by running `$ nodemon` in the server root directory
 
 Then finally boot up the react app with `$ npm run dev` in the client root directory
+
+Test user:
+
+email: bram@gmail.com
+password: Welcome2WestSiteBram
