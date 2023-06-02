@@ -1,15 +1,21 @@
 import { useState } from "react";
 import "./dropdownMenu.scss";
 
-const DropdownMenu = ({ options, defaultOption, onOptionChange, type, name }) => {
+// TODO find a better way to add darkmode or other styles to this component
+
+const DropdownMenu = ({ options, darkmode, defaultOption, onOptionChange, type, name }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState(defaultOption || options[0]);
 
     return (
-        <div className={`dropdown-menu dropdown-menu--${type} ${isOpen ? "dropdown-menu--active" : ""}`}>
+        <div className={`dropdown-menu dropdown-menu--${type} ${darkmode ? "dropdown-menu--darkmode" : ""} ${isOpen ? "dropdown-menu--active" : ""}`}>
             <div className="dropdown-menu__selected-value" onClick={() => setIsOpen(!isOpen)}>
                 <span>{selectedOption}</span>
-                <img src="/icons/chevron-down-dark.svg" alt="chevron icon" />
+                {darkmode ? (
+                    <img src="/icons/chevron-down-light.svg" alt="chevron icon" />
+                ) : (
+                    <img src="/icons/chevron-down-dark.svg" alt="chevron icon" />
+                )}
             </div>
             <ul className="dropdown-menu__options">
                 {options.map((option, index) => (

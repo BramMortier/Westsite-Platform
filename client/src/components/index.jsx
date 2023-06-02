@@ -10,6 +10,8 @@ export { default as DropdownMenu } from "./common/DropdownMenu/DropdownMenu";
 export { default as Checkbox } from "./common/Checkbox/Checkbox";
 
 export { default as Hero } from "./userPortal/Hero/Hero";
+export { default as TrickList } from "./userPortal/TrickList/TrickList";
+export { default as TrickCardV2 } from "./userPortal/TrickCardV2/TrickCardV2";
 export { default as Expectations } from "./userPortal/Expectations/Expectations";
 export { default as SectionLabel } from "./userPortal/SectionLabel/SectionLabel";
 export { default as Header } from "./userPortal/Header/Header";
@@ -28,7 +30,7 @@ export { default as AddUserForm } from "./adminDashboard/AddUserForm/AddUserForm
 export { default as MemberDetail } from "./adminDashboard/MemberDetail/MemberDetail";
 
 export { default as TrickActions } from "./adminDashboard/TrickActions/TrickActions";
-export { default as TrickList } from "./adminDashboard/TrickList/TrickList";
+export { default as TricksGrid } from "./adminDashboard/TricksGrid/TricksGrid";
 export { default as TrickFilters } from "./adminDashboard/TrickFilters/TrickFilters";
 export { default as TrickDetail } from "./adminDashboard/TrickDetail/TrickDetail";
 export { default as TrickStatistics } from "./adminDashboard/TrickStatistics/TrickStatistics";

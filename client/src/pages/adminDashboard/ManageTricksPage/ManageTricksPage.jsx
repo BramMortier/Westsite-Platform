@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SlidingMenu, TrickActions, TrickList, TrickFilters, TrickStatistics, TrickDetail, AddTrickForm } from "@components";
+import { SlidingMenu, TrickActions, TricksGrid, TrickFilters, TrickStatistics, TrickDetail, AddTrickForm } from "@components";
 import "./manageTricksPage.scss";
 
 const ManageTricksPage = () => {
@@ -17,7 +17,7 @@ const ManageTricksPage = () => {
             </aside>
             <main className="manage-tricks-page__main">
                 <TrickActions setCreateTrickMenuOpen={setCreateTrickMenuOpen} />
-                <TrickList />
+                <TricksGrid />
             </main>
         </React.Fragment>
     );

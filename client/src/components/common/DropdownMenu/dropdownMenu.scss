@@ -91,4 +91,39 @@
             margin-top: 50px;
         }
     }
+
+    &--darkmode {
+        .dropdown-menu {
+            &__selected-value {
+                background-color: var(--gray-800);
+                border: 1px solid var(--gray-500);
+                color: var(--gray-300);
+
+                &:hover {
+                    background-color: var(--gray-700);
+                }
+            }
+
+            &__options {
+                background-color: var(--gray-800);
+                border: 1px solid var(--gray-700);
+                color: var(--gray-300);
+            }
+
+            &__option {
+                &:hover {
+                    background-color: var(--gray-700);
+                }
+
+                &--active {
+                    background-color: var(--gray-700);
+                    font-weight: var(--fw-semi-bold);
+
+                    &:hover {
+                        background-color: var(--gray-700);
+                    }
+                }
+            }
+        }
+    }
 }
