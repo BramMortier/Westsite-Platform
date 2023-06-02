@@ -1,17 +1,21 @@
 import { useState } from "react";
 import routes from "@config/routes";
 import { Link } from "react-router-dom";
-import { Button } from "@components";
+import { Button, PopupMenu, LoginForm } from "@components";
 import { useAuthContext } from "@hooks/useAuthContext";
 import "./header.scss";
 
 const Header = () => {
-    const { state } = useAuthContext();
+    const { state, logout } = useAuthContext();
 
     const [userMenuOpen, setUserMenuOpen] = useState(false);
+    const [loginPopupOpen, setLoginPopupOpen] = useState(false);
 
     return (
         <header className="header">
+            <PopupMenu title="Login" open={loginPopupOpen} setOpen={setLoginPopupOpen}>
+                <LoginForm setLoginPopupOpen={setLoginPopupOpen} />
+            </PopupMenu>
             <section className="header__section">
                 <Link to={routes.home}>
                     <img className="header__logo" src="/icons/westsite-logo.svg" alt="logo" />
@@ -47,7 +51,14 @@ const Header = () => {
                                 </li>
                                 <li className="header__user-menu-option">
                                     <img src="/icons/logout.svg" alt="profile icon" />
-                                    <span>Uitloggen</span>
+                                    <span
+                                        onClick={() => {
+                                            setUserMenuOpen(false);
+                                            logout();
+                                        }}
+                                    >
+                                        Uitloggen
+                                    </span>
                                 </li>
                             </ul>
                         </div>
@@ -55,7 +66,9 @@ const Header = () => {
                 </section>
             ) : (
                 <section className="header__section">
-                    <Button type="primary">Login</Button>
+                    <Button type="primary" onClick={() => setLoginPopupOpen(true)}>
+                        Inloggen
+                    </Button>
                 </section>
             )}
         </header>

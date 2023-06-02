@@ -1,0 +1,46 @@
+.login-form {
+    width: 400px;
+
+    &__general-message {
+        width: 100%;
+        padding: var(--space-sm) var(--space-md);
+        border-radius: 5px;
+        margin-bottom: var(--space-md);
+
+        &--ok {
+            background-color: var(--sea-blue-200);
+            color: var(--sea-blue-600);
+        }
+
+        &--error {
+            background-color: var(--error-bg);
+            color: var(--error-text);
+        }
+    }
+
+    &__row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-sm);
+        margin-bottom: var(--space-sm);
+
+        &--last {
+            margin-bottom: var(--space-xl);
+        }
+    }
+
+    &__group {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: var(--space-2xs);
+
+        &--full-width {
+            grid-column: span 2;
+        }
+
+        label {
+            font-weight: var(--fw-semi-bold);
+        }
+    }
+}

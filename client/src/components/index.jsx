@@ -14,6 +14,7 @@ export { default as Expectations } from "./userPortal/Expectations/Expectations"
 export { default as SectionLabel } from "./userPortal/SectionLabel/SectionLabel";
 export { default as Header } from "./userPortal/Header/Header";
 export { default as Footer } from "./userPortal/Footer/Footer";
+export { default as LoginForm } from "./userPortal/LoginForm/LoginForm";
 
 export { default as AdminHeader } from "./adminDashboard/AdminHeader/AdminHeader";
 export { default as SlidingMenu } from "./adminDashboard/SlidingMenu/SlidingMenu";

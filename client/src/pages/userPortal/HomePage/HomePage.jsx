@@ -1,4 +1,4 @@
-import { Expectations, Hero } from "@components";
+import { Expectations, Hero, PopupMenu } from "@components";
 import "./homePage.scss";
 
 const homePage = () => {

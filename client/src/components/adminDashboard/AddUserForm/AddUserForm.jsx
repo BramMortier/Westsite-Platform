@@ -74,6 +74,8 @@ const AddUserForm = ({ setCreateUserMenuOpen }) => {
         }
     };
 
+    // TODO make a reusable components for general form messages
+
     return (
         <form ref={topRef} className="add-user-form" noValidate onSubmit={handleUserFormSubmit}>
             {userFormMessage && (
