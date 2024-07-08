@@ -1,6 +1,6 @@
 # West Site Training platform
 
-![](./client/public/images/dashboard-preview.png)
+![Westsite Platform](https://github.com/BramMortier/Westsite-Platform/assets/79015250/5da10676-6762-48df-96b5-ca4c36912aad)
 
 ### Technologies used
 
